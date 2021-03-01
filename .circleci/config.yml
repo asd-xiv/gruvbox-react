@@ -1,0 +1,85 @@
+version: 2
+
+#
+# YAML variable templates
+#
+job_defaults: &job_defaults
+  working_directory: ~/gruvboxui
+  docker:
+    - image: circleci/node:12
+
+#
+# Run all jobs in sequence
+#
+workflows:
+  version: 2
+  deploy_npm:
+    jobs:
+      - setup:
+          filters:
+            branches:
+              only:
+                - master
+      - test:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - setup
+      - publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
+
+#
+# Define atomic jobs
+#
+jobs:
+  setup:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - run:
+          name: "gruvboxui: Install npm packages"
+          command: "npm run setup:ci"
+
+      - save_cache:
+          paths:
+            - node_modules
+            - dist
+          key: gruvboxui-{{ .Branch }}-{{ .Revision }}
+
+  test:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - gruvboxui-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "gruvboxui: Run linter"
+          command: "npm run lint"
+
+  publish:
+    <<: *job_defaults
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - gruvboxui-{{ .Branch }}-{{ .Revision }}
+
+      - run:
+          name: "gruvboxui: Release to npm with semantic-release"
+          command: "npm run publish"
+

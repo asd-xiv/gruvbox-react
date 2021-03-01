@@ -39,7 +39,9 @@
     "lint": "npm run lint:md && npm run lint:css && npm run lint:js",
     "----TEST": "",
     "test": "riteway -r @babel/register -r ignore-styles 'src/**/*.test.js' 'src/**/*.test.jsx' | tap-nirvana",
-    "tdd": "nodemon -e js,jsx,json --watch src --exec 'npm test'"
+    "tdd": "nodemon -e js,jsx,json --watch src --exec 'npm test'",
+    "----PUBLISH": "",
+    "publish": "semantic-release"
   },
   "dependencies": {
     "@asd14/m": "^5.1.0",
@@ -101,6 +103,7 @@
     "prettier": "^2.2.1",
     "react-refresh": "^0.9.0",
     "riteway": "^6.2.1",
+    "semantic-release": "^17.4.0",
     "style-loader": "^2.0.0",
     "stylelint": "^13.11.0",
     "stylelint-config-standard": "^20.0.0",
