@@ -1,4 +1,4 @@
-const debug = require("debug")("asd14:Index")
+const debug = require("debug")("gruvbox-ui:Index")
 
 import "core.ui/index.css"
 

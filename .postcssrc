@@ -5,7 +5,7 @@
     },
     "postcss-color-function": {},
     "postcss-custom-media": {
-      "importFrom": "src/core.ui/variables.css",
-    },
+      "importFrom": "src/core.ui/variables.css"
+    }
   }
 }

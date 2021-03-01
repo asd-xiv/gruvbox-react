@@ -1,15 +1,15 @@
 {
-  "name": "tpl-react-lib",
+  "name": "@asd14/gruvbox-ui",
   "version": "0.0.1",
-  "description": "React library starter",
+  "description": "Gruvbox React UI components",
   "license": "BSD-3-Clause",
-  "homepage": "https://github.com/andreidmt/tpl-react-lib#readme",
+  "homepage": "https://github.com/asd-xiv/gruvbox-ui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreidmt/tpl-react-lib.git"
+    "url": "git+https://github.com/asd-xiv/gruvbox-ui.git"
   },
   "bugs": {
-    "url": "https://github.com/andreidmt/tpl-react-lib/issues"
+    "url": "https://github.com/asd-xiv/gruvbox-ui/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
@@ -17,20 +17,24 @@
   },
   "main": "dist/index.js",
   "style": "dist/index.css",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "----UTIL": "",
-    "clean": "rm -rf ./node_modules",
-    "setup": "npm run clean && npm i && npm audit fix",
+    "setup:clean": "rm -rf ./node_modules",
+    "setup": "npm run setup:clean && npm i && npm audit fix",
     "setup:ci": "npm ci && npm audit fix",
     "update": "npm-check --update",
     "update-force": "npm-check --update-all",
     "----DEV": "",
     "start": "webpack serve --mode development",
     "----BUILD": "",
-    "build": "webpack --mode production",
+    "build:clean": "rm -rf ./dist",
+    "build": "npm run build:clean && webpack --mode production",
     "----LINT": "",
     "lint:css": "stylelint 'src/*.css' 'src/**/*.css'",
-    "lint:md": "markdownlint *.md",
+    "lint:md": "markdownlint '*.md'",
     "lint:js": "eslint --ext .jsx,.js,.json --quiet src",
     "lint": "npm run lint:md && npm run lint:css && npm run lint:js",
     "----TEST": "",
@@ -38,15 +42,13 @@
     "tdd": "nodemon -e js,jsx,json --watch src --exec 'npm test'"
   },
   "dependencies": {
-    "@asd14/m": "^5.0.0",
-    "@babel/runtime": "^7.13.7",
+    "@asd14/m": "^5.1.0",
+    "@babel/runtime": "^7.13.8",
     "classnames": "^2.2.6",
     "cuid": "^2.1.8",
     "debug": "^4.1.1",
     "luxon": "^1.26.0",
     "qs": "^6.9.6",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
     "sanitize.css": "^12.0.1"
   },
   "peerDependencies": {
@@ -54,15 +56,15 @@
     "react-dom": "^17.*"
   },
   "devDependencies": {
-    "@asd14/eslint-config": "^5.29.0",
+    "@asd14/eslint-config": "^5.29.1",
     "@babel/cli": "^7.12.17",
-    "@babel/core": "^7.12.17",
+    "@babel/core": "^7.13.8",
     "@babel/plugin-transform-react-constant-elements": "^7.12.13",
     "@babel/plugin-transform-react-display-name": "^7.12.13",
-    "@babel/plugin-transform-runtime": "^7.12.17",
-    "@babel/preset-env": "^7.12.17",
+    "@babel/plugin-transform-runtime": "^7.13.8",
+    "@babel/preset-env": "^7.13.8",
     "@babel/preset-react": "^7.12.13",
-    "@babel/register": "^7.12.13",
+    "@babel/register": "^7.13.8",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
@@ -70,7 +72,7 @@
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.2",
     "dotenv-webpack": "^6.0.0",
-    "eslint": "^7.20.0",
+    "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-html": "^6.1.1",

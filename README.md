@@ -1,6 +1,6 @@
 <!-- markdownlint-disable line-length -->
 
-# React library template starter
+# Gruvbox UI
 
 <!-- vim-markdown-toc GFM -->
 
@@ -21,4 +21,4 @@
 
 ## Changelog
 
-See the [releases section](https://github.com/andreidmt/tpl-react/releases) for details.
+See the [releases section](https://github.com/asd-xiv/gruvbox-ui/releases) for details.
