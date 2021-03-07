@@ -9,7 +9,7 @@ export const useTheme = (props = {}) => {
   const dispatch = useDispatch()
 
   const {
-    theme: defaultTheme = "default",
+    theme: defaultTheme = "gruvbox-dark",
     size: defaultSize = "normal",
   } = props
 
