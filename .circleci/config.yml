@@ -20,6 +20,7 @@ workflows:
             branches:
               only:
                 - master
+
       - test:
           filters:
             branches:
@@ -27,6 +28,7 @@ workflows:
                 - master
           requires:
             - setup
+
       - publish:
           filters:
             branches:
@@ -46,14 +48,29 @@ jobs:
       - checkout
 
       - run:
-          name: "gruvboxui: Install npm packages"
+          name: "gruvbox-ui: Install npm packages"
           command: "npm run setup:ci"
+
+      - run:
+          name: "gruvbox-ui: Babel compile"
+          command: "npm run build"
 
       - save_cache:
           paths:
             - node_modules
+            - src
             - dist
-          key: gruvboxui-{{ .Branch }}-{{ .Revision }}
+            - .git
+            - .babelrc
+            - .eslintrc
+            - .gitignore
+            - .prettierrc
+            - README.md
+            - CHANGELOG.md
+            - LICENSE
+            - package-lock.json
+            - package.json
+          key: gruvbox-ui-{{ .Branch }}-{{ .Revision }}
 
   test:
     <<: *job_defaults
@@ -63,10 +80,10 @@ jobs:
 
       - restore_cache:
           keys:
-            - gruvboxui-{{ .Branch }}-{{ .Revision }}
+            - gruvbox-ui-{{ .Branch }}-{{ .Revision }}
 
       - run:
-          name: "gruvboxui: Run linter"
+          name: "gruvbox-ui: Run linter"
           command: "npm run lint"
 
   publish:
@@ -77,9 +94,9 @@ jobs:
 
       - restore_cache:
           keys:
-            - gruvboxui-{{ .Branch }}-{{ .Revision }}
+            - gruvbox-ui-{{ .Branch }}-{{ .Revision }}
 
       - run:
-          name: "gruvboxui: Release to npm with semantic-release"
+          name: "gruvbox-ui: Release to npm with semantic-release"
           command: "npm run publish"
 
