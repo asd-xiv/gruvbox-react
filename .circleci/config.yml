@@ -6,7 +6,7 @@ version: 2
 job_defaults: &job_defaults
   working_directory: ~/gruvboxui
   docker:
-    - image: circleci/node:12
+    - image: circleci/node:lts
 
 #
 # Run all jobs in sequence
