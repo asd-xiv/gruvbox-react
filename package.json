@@ -45,17 +45,17 @@
     "publish": "semantic-release"
   },
   "dependencies": {
+    "@asd14/m": "^5.1",
     "@babel/runtime": "^7.13.9",
     "classnames": "^2.2.6",
     "cuid": "^2.1.8",
-    "debug": "^4.1.1"
+    "debug": "^4.1.1",
+    "sanitize.css": "^12.0.1"
   },
   "peerDependencies": {
-    "@asd14/m": "^5.*",
     "react": "^17.*",
     "react-dom": "^17.*",
-    "react-redux": "^7.*",
-    "sanitize.css": "^12.*"
+    "react-redux": "^7.*"
   },
   "devDependencies": {
     "@asd14/eslint-config": "^5.29.1",
@@ -73,7 +73,7 @@
     "css-loader": "^5.1.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-html": "^6.1.1",
+    "eslint-plugin-html": "^6.1.2",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsdoc": "^32.2.0",
     "eslint-plugin-json": "^2.1.2",
@@ -107,7 +107,7 @@
     "tap-nirvana": "^1.1.0",
     "testcafe": "^1.12.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.24.3",
+    "webpack": "^5.24.4",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   }
