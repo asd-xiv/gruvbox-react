@@ -1,5 +1,4 @@
-.theme-gruvbox-dark {
-  /* theme */
+.color-scheme-gruvbox-dark {
   --color-fg: #EBDBB2;
   --color-fg4: #A89984;
   --color-bg: #282828;
@@ -23,8 +22,7 @@
   --color-focused: var(--color-yellow);
 }
 
-.theme-gruvbox-light {
-  /* theme */
+.color-scheme-gruvbox-light {
   --color-fg: #3C3836;
   --color-fg4: #7C6F64;
   --color-bg: #FBF1C7;
