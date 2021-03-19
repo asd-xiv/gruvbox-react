@@ -1,4 +1,4 @@
-version: 2
+:hooetversion: 2
 
 #
 # YAML variable templates
@@ -49,7 +49,7 @@ jobs:
 
       - run:
           name: "gruvbox-ui: Install npm packages"
-          command: "npm run setup:ci"
+          command: "npm run setup"
 
       - run:
           name: "gruvbox-ui: Babel compile"
