@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/prevent-abbreviations */
+
 const debug = require("debug")("@asd14/gruvbox-ui:Input")
 
 import React, { forwardRef } from "react"
