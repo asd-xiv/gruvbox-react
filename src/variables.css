@@ -1,4 +1,4 @@
-.color-scheme-gruvbox-dark {
+.gruvbox-dark {
   --color-fg: #EBDBB2;
   --color-fg4: #A89984;
   --color-bg: #282828;
@@ -22,7 +22,7 @@
   --color-focused: var(--color-yellow);
 }
 
-.color-scheme-gruvbox-light {
+.gruvbox-light {
   --color-fg: #3C3836;
   --color-fg4: #7C6F64;
   --color-bg: #FBF1C7;
@@ -46,13 +46,11 @@
   --color-focused: var(--color-yellow);
 }
 
-.size-normal {
+.normal {
   --unit: 16px;
   --radius: 3px;
   --font-size: 14px;
   --box-shadow: 5px 5px 0 var(--color-fg4);
-  --distancer: var(--unit);
-  --line-height: var(--unit);
 }
 
 :root {
