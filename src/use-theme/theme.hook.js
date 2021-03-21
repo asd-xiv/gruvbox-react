@@ -33,8 +33,6 @@ const sizes = {
     radius: 3,
     fontSize: 14,
     boxShadow: "5px 5px 0 var(--color-fg4)",
-    distancer: 16,
-    lineHeight: 16,
   },
 }
 
@@ -42,8 +40,8 @@ export const useTheme = (props = {}) => {
   const dispatch = useDispatch()
 
   const {
-    colorScheme: defaultColorScheme = "color-scheme-gruvbox-dark",
-    size: defaultSize = "size-normal",
+    colorScheme: defaultColorScheme = "gruvbox-dark",
+    size: defaultSize = "normal",
   } = props
 
   const { colorScheme = defaultColorScheme, size = defaultSize } = useSelector(
@@ -58,7 +56,7 @@ export const useTheme = (props = {}) => {
       ...sizes[size],
     },
     {
-      setTheme: useCallback(
+      setColorScheme: useCallback(
         source =>
           dispatch({
             type: `${STORE_KEY}.SET`,

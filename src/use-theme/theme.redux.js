@@ -6,7 +6,7 @@ export const STORE_KEY = "GLOBAL.THEME"
 
 export const reducer = (
   state = {
-    theme: undefined,
+    colorScheme: undefined,
     size: undefined,
   },
   { type, payload = {} }
