@@ -1,3 +1,41 @@
 @import "sanitize.css";
 @import "./variables.css";
 @import "./fonts.css";
+
+::selection {
+  color: var(--color-bg);
+  background: var(--color-fg);
+}
+
+a {
+  color: var(--color-blue);
+}
+
+a:visited {
+  color: var(--color-purple);
+}
+
+hr {
+  overflow: hidden;
+
+  height: 1px;
+  margin: calc(var(--unit) - 1px) 0;
+
+  color: transparent;
+
+  border-top: 1px dashed var(--color-fg);
+  background-color: transparent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+
+  font-size: var(--font-size);
+  line-height: var(--unit);
+}
