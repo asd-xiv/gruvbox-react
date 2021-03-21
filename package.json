@@ -49,9 +49,9 @@
     "classnames": "^2.2.6",
     "cuid": "^2.1.8",
     "debug": "^4.1.1",
-    "react": "^17.*",
-    "react-dom": "^17.*",
-    "react-redux": "^7.*",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
     "sanitize.css": "^12.0.1"
   },
   "peerDependencies": {
@@ -84,7 +84,7 @@
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^28.0.2",
+    "eslint-plugin-unicorn": "^29.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "http-server": "^0.12.3",
@@ -109,7 +109,7 @@
     "tap-nirvana": "^1.1.0",
     "testcafe": "^1.12.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.26.3",
+    "webpack": "^5.27.1",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
   }
