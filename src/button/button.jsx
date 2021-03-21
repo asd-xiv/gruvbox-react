@@ -36,8 +36,8 @@ Button.propTypes = {
   className: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired,
   icon: PropTypes.oneOfType([PropTypes.node, PropTypes.string]),
-  type: PropTypes.oneOf(["default", "primary", "secondary", "bad"]),
-  size: PropTypes.oneOf(["default", "small", "tiny", "medium"]),
+  type: PropTypes.oneOf(["primary", "secondary", "bad"]),
+  size: PropTypes.oneOf(["normal"]),
   isDisabled: PropTypes.bool,
   onClick: PropTypes.func,
 }
@@ -45,8 +45,8 @@ Button.propTypes = {
 Button.defaultProps = {
   className: "",
   icon: undefined,
-  type: "default",
-  size: "default",
+  type: "primary",
+  size: "normal",
   isDisabled: false,
   onClick: undefined,
 }
