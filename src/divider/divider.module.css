@@ -1,0 +1,9 @@
+.divider {
+  text-align: center;
+
+  color: var(--color-green);
+}
+
+.divider--is-fancy {
+  margin: var(--unit) 0;
+}
