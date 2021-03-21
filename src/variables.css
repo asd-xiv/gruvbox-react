@@ -55,7 +55,7 @@
 
 :root {
   /* general */
-  --opacity-disabled: 0.6;
+  --opacity-disabled: 0.4;
 
   /* fonts */
   --font-family: "Fira Code", "Consolas", "Courier New", monospace;
