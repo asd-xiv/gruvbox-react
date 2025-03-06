@@ -1,0 +1,39 @@
+.divider-base {
+  @apply w-full border-border mb-4 h-1;
+}
+
+.size-sm {
+  @apply h-0.5;
+}
+
+.size-lg {
+  @apply h-2;
+}
+
+/**
+ * Variants
+ */
+
+.variant-ascii {
+  font-weight: bold;
+
+  @apply text-accent font-mono mt-4;
+}
+
+.simple-normal {
+  border-top: 1px solid;
+}
+
+.simple-thick {
+  border-top: 2px solid;
+}
+
+.double-normal {
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.double-thick {
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+}
