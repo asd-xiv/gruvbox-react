@@ -1,116 +1,92 @@
 {
-  "name": "@asd14/gruvbox-ui",
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@asd14/gruvbox-react",
   "version": "0.0.1",
-  "description": "Gruvbox React UI components",
-  "license": "BSD-3-Clause",
-  "homepage": "https://github.com/asd-xiv/gruvbox-ui#readme",
+  "description": "",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "nx": {
+    "tags": [
+      "type:react-lib"
+    ]
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/asd-xiv/gruvbox-ui.git"
+    "url": "git+https://github.com/deckr41/mono.git",
+    "directory": "packages/@asd14/libs/gruvbox-react"
   },
-  "bugs": {
-    "url": "https://github.com/asd-xiv/gruvbox-ui/issues"
-  },
-  "author": {
-    "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andreidmt"
-  },
-  "main": "dist/index.js",
-  "style": "dist/index.css",
   "files": [
-    "/dist"
+    "bin",
+    "dist"
   ],
+  "type": "module",
+  "exports": {
+    "./css": {
+      "style": "./static/index.css"
+    },
+    "./theme": {
+      "import": "./dist/esm/src/index.theme.js",
+      "require": "./dist/cjs/src/index.theme.js",
+      "types": "./dist/types/src/index.theme.d.ts"
+    },
+    "./hooks": {
+      "import": "./dist/esm/src/index.hooks.js",
+      "require": "./dist/cjs/src/index.hooks.js",
+      "types": "./dist/types/src/index.hooks.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/esm/src/index.utils.js",
+      "require": "./dist/cjs/src/index.utils.js",
+      "types": "./dist/types/src/index.utils.d.ts"
+    },
+    "./icons": {
+      "import": "./dist/esm/src/index.icons.js",
+      "require": "./dist/cjs/src/index.icons.js",
+      "types": "./dist/types/src/index.icons.d.ts"
+    },
+    "./ui": {
+      "import": "./dist/esm/src/index.ui.js",
+      "require": "./dist/cjs/src/index.ui.js",
+      "types": "./dist/types/src/index.ui.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "----UTIL": "",
-    "setup:clean": "rm -rf ./node_modules",
-    "setup": "npm run setup:clean && npm ci --also=dev",
-    "update": "npm-check --update && npm audit fix",
-    "update:force": "npm-check --update-all && npm audit fix",
-    "----DEV": "",
-    "start": "webpack serve --mode development",
-    "----BUILD": "",
-    "build:clean": "rm -rf ./dist",
-    "build": "babel src --out-dir dist --copy-files",
-    "build:watch": "nodemon -e js,jsx,json,.css --watch src --exec 'npm run build'",
-    "----LINT": "",
-    "lint:css": "stylelint 'src/*.css' 'src/**/*.css'",
-    "lint:md": "markdownlint '*.md'",
-    "lint:js": "eslint --ext .jsx,.js,.json --quiet src",
-    "lint": "npm run lint:md && npm run lint:css && npm run lint:js",
-    "----TEST": "",
-    "test": "riteway -r @babel/register -r ignore-styles 'src/**/*.test.js' 'src/**/*.test.jsx' | tap-nirvana",
-    "tdd": "nodemon -e js,jsx,json --watch src --exec 'npm test'",
-    "----PUBLISH": "",
-    "publish": "semantic-release"
+    "format": "eslint --fix .",
+    "----CODE-ANALYSIS": "",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --coverage",
+    "---BUILD": "",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:src:esm": "swc src --out-dir dist/esm --copy-files",
+    "build:src:cjs": "swc src --out-dir dist/cjs -C module.type=commonjs --copy-files",
+    "build": "npm run build:src:esm && npm run build:src:cjs && npm run build:types"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --quiet"
+    ]
   },
   "dependencies": {
-    "@asd14/m": "^5.1.0",
-    "@babel/runtime": "^7.13.10",
-    "classnames": "^2.2.6",
-    "cuid": "^2.1.8",
-    "debug": "^4.1.1",
-    "react": "^17.*",
-    "react-dom": "^17.*",
-    "react-redux": "^7.*",
-    "sanitize.css": "^12.0.1"
-  },
-  "peerDependencies": {
-    "react": "^17.*",
-    "react-dom": "^17.*",
-    "react-redux": "^7.*"
+    "@radix-ui/react-slot": "^1.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.475.0",
+    "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
-    "@asd14/eslint-config": "^5.31.0",
-    "@babel/cli": "^7.13.10",
-    "@babel/core": "^7.13.10",
-    "@babel/plugin-transform-react-constant-elements": "^7.13.10",
-    "@babel/plugin-transform-react-display-name": "^7.12.13",
-    "@babel/plugin-transform-runtime": "^7.13.10",
-    "@babel/preset-env": "^7.13.10",
-    "@babel/preset-react": "^7.12.13",
-    "@babel/register": "^7.13.8",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "babel-plugin-jsx-remove-data-test-id": "^3.0.0",
-    "css-loader": "^5.1.3",
-    "eslint": "^7.22.0",
-    "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-html": "^6.1.2",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^32.3.0",
-    "eslint-plugin-json": "^2.1.2",
-    "eslint-plugin-no-inferred-method-name": "^2.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-unicorn": "^29.0.0",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.3.1",
-    "http-server": "^0.12.3",
-    "ignore-styles": "^5.0.1",
-    "markdownlint-cli": "^0.27.1",
-    "mini-css-extract-plugin": "^1.3.9",
-    "nodemon": "^2.0.7",
-    "npm-check": "^5.9.2",
-    "postcss": "^8.2.8",
-    "postcss-color-function": "^4.1.0",
-    "postcss-custom-media": "^8.0.0",
-    "postcss-global-import": "^1.0.6",
-    "postcss-loader": "^5.2.0",
-    "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.2.1",
-    "riteway": "^6.2.1",
-    "semantic-release": "^17.4.2",
-    "style-loader": "^2.0.0",
-    "stylelint": "^13.12.0",
-    "stylelint-config-standard": "^21.0.0",
-    "stylelint-order": "^4.1.0",
-    "tap-nirvana": "^1.1.0",
-    "testcafe": "^1.12.0",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.27.1",
-    "webpack-cli": "^4.5.0",
-    "webpack-dev-server": "^3.11.2"
+    "@asd14/eslint-config": "^0.1.0",
+    "@asd14/jest-config": "^0.1.0",
+    "@asd14/prettier-config": "^0.1.0",
+    "@asd14/ts-config": "^0.1.0"
+  },
+  "peerDependencies": {
+    "tailwindcss": "^4",
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
   }
 }

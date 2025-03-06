@@ -1,6 +1,6 @@
 <!-- markdownlint-disable line-length -->
 
-# Gruvbox UI
+# Gruvbox React UI
 
 <!-- vim-markdown-toc GFM -->
 
@@ -10,4 +10,4 @@
 
 ## Changelog
 
-See the [releases section](https://github.com/asd-xiv/gruvbox-ui/releases) for details.
+See the [releases section](https://github.com/asd-xiv/gruvbox-react/releases) for details.

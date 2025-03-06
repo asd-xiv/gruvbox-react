@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@asd14/ts-config/targets/react",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./dist/types"
+  },
+  "include": ["src", "types", "eslint.config.js", "jest.config.js"],
+  "exclude": ["node_modules", "dist", "coverage"]
+}

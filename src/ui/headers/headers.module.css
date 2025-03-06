@@ -1,0 +1,27 @@
+.heading-base {
+  @apply font-heading font-bold tracking-tight;
+}
+
+.h1 {
+  @apply heading-base text-2xl desktop:text-3xl;
+}
+
+.h2 {
+  @apply heading-base text-xl desktop:text-2xl;
+}
+
+.h3 {
+  @apply heading-base text-lg;
+}
+
+.h4 {
+  @apply heading-base text-base;
+}
+
+.h5 {
+  @apply heading-base text-base;
+}
+
+.h6 {
+  @apply heading-base text-base;
+}
