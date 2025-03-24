@@ -63,7 +63,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
  *   <a href="/link">Link styled as Button</a>
  * </Button>
  */
-export const button = forwardRef<HTMLButtonElement, ButtonProps>(
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, reference) => {
     const Comp = asChild ? Slot : "button"
     return (
@@ -76,7 +76,7 @@ export const button = forwardRef<HTMLButtonElement, ButtonProps>(
   }
 )
 
-// Button.displayName = "Button"
+Button.displayName = "Button"
 
-// export { Button }
-// export type { ButtonProps }
+export { Button }
+export type { ButtonProps }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "name": "@asd14/gruvbox-react",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "sideEffects": false,
   "publishConfig": {
@@ -75,8 +75,8 @@
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^0.475.0",
-    "tailwind-merge": "^3.0.1"
+    "lucide-react": "^0.483.0",
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
     "@asd14/eslint-config": "^0.1.0",
