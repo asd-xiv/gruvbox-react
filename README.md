@@ -11,6 +11,8 @@
 [intro_gruv]: https://github.com/morhetz/gruvbox
 [intro_postcss]: https://github.com/postcss/postcss
 
+## Table of contents
+
 <!-- vim-markdown-toc GFM -->
 
 - [Design Principles](#design-principles)
@@ -26,10 +28,8 @@
 
 - **Terminal-inspired**: Clean, high-contrast design with consistent spacing and
   typography
-- **No transparencies or derivative colors**: Use only the predefined CSS custom
-  properties from the Gruvbox palette
-- **No `color-mix()`, `rgba()`, or opacity modifications**: Components use
-  colors as-is from the design system
+- **No transparencies or derivative colors**: Only colors from the Gruvbox
+  palette
 
 ## Installation
 
