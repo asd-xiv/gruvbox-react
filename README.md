@@ -3,10 +3,10 @@
 
 # @asd14/gruvbox-react
 
-> 🖥️ (yet another) Terminal inspired React UI kit ✨
+> :computer: (yet another) Terminal inspired React UI kit :sparkles:
 
-- 🎨 [Gruvbox][intro_gruv] color scheme
-- ⚡ [Postcss][intro_postcss] is all you need
+- :art: [Gruvbox][intro_gruv] color scheme
+- :zap: [Postcss][intro_postcss] is all you need
 
 [intro_gruv]: https://github.com/morhetz/gruvbox
 [intro_postcss]: https://github.com/postcss/postcss

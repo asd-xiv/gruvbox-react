@@ -12,7 +12,7 @@ jobs:
     name: Setup
     runs-on: ubuntu-latest
     outputs:
-      cache-key: ${{ steps.cache-key.outputs.hash }}
+      node-modules-cache-key: ${{ steps.node-modules-cache-key.outputs.key }}
       node-version: ${{ steps.nvmrc.outputs.node_version }}
     steps:
       - name: Checkout
@@ -22,9 +22,9 @@ jobs:
         id: nvmrc
         run: echo "node_version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
-      - name: Generate cache key
-        id: cache-key
-        run: echo "hash=$(cat package-lock.json | shasum -a 256 | cut -d ' ' -f 1)" >> $GITHUB_OUTPUT
+      - name: Generate node_modules cache key
+        id: node-modules-cache-key
+        run: echo "key=${{ runner.os }}-node-modules-$(cat package-lock.json | shasum -a 256 | cut -d ' ' -f 1)-v2" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -37,7 +37,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ steps.cache-key.outputs.hash }}
+          key: ${{ steps.node-modules-cache-key.outputs.key }}
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
@@ -60,7 +60,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ needs.setup.outputs.cache-key }}
+          key: ${{ needs.setup.outputs.node-modules-cache-key }}
 
       - name: Run linting
         run: npm run lint
@@ -82,7 +82,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ needs.setup.outputs.cache-key }}
+          key: ${{ needs.setup.outputs.node-modules-cache-key }}
 
       - name: Run type checking
         run: npm run typecheck
@@ -104,7 +104,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ needs.setup.outputs.cache-key }}
+          key: ${{ needs.setup.outputs.node-modules-cache-key }}
 
       - name: Run unit testing
         run: npm run unit-test
@@ -133,7 +133,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ needs.setup.outputs.cache-key }}
+          key: ${{ needs.setup.outputs.node-modules-cache-key }}
 
       - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
         run: npm audit signatures
