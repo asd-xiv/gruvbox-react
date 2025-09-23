@@ -1,0 +1,79 @@
+/**
+ * GitHub-style Callout Component
+ *
+ * Terminal-inspired design with Gruvbox colors
+ */
+
+.base {
+  composes: border border-solid rounded-md my-4 p-3 from global;
+  background-color: var(--bg-secondary);
+  border-color: var(--fg-muted);
+  font-family: var(--font-mono);
+}
+
+.header {
+  composes: flex items-center gap-2 mb-2 from global;
+}
+
+.icon {
+  composes: text-base from global;
+  line-height: 1;
+}
+
+.title {
+  composes: font-bold text-sm from global;
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+.content {
+  composes: text-sm leading-normal from global;
+  color: var(--fg-secondary);
+}
+
+/* === VARIANT STYLES === */
+
+.variant-note {
+  border-color: var(--gruvbox-bright-blue);
+  background-color: var(--bg-secondary);
+}
+
+.variant-note .title {
+  color: var(--gruvbox-bright-blue);
+}
+
+.variant-tip {
+  border-color: var(--gruvbox-bright-green);
+  background-color: var(--bg-secondary);
+}
+
+.variant-tip .title {
+  color: var(--gruvbox-bright-green);
+}
+
+.variant-important {
+  border-color: var(--gruvbox-bright-purple);
+  background-color: var(--bg-secondary);
+}
+
+.variant-important .title {
+  color: var(--gruvbox-bright-purple);
+}
+
+.variant-warning {
+  border-color: var(--gruvbox-bright-yellow);
+  background-color: var(--bg-secondary);
+}
+
+.variant-warning .title {
+  color: var(--gruvbox-bright-yellow);
+}
+
+.variant-caution {
+  border-color: var(--gruvbox-bright-red);
+  background-color: var(--bg-secondary);
+}
+
+.variant-caution .title {
+  color: var(--gruvbox-bright-red);
+}

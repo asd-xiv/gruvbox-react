@@ -4,8 +4,8 @@ This file contains details about why certain package decisions where taken.
 
 <!-- vim-markdown-toc GFM -->
 
-* [1. Add separate CJS build](#1-add-separate-cjs-build)
-* [2. Disable `react/require-default-props`](#2-disable-reactrequire-default-props)
+- [1. Add separate CJS build](#1-add-separate-cjs-build)
+- [2. Disable `react/require-default-props`](#2-disable-reactrequire-default-props)
 
 <!-- vim-markdown-toc -->
 
@@ -32,7 +32,7 @@ Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: No "exports" main defined in node_modules
 This rule aims to ensure that any non-required prop types of a component has a
 corresponding `defaultProps` value.
 
-While it works with functional components, it does not work with `forwardRef` 
-which we are using in every UI component. 
+While it works with functional components, it does not work with `forwardRef`
+which we are using in every UI component.
 
 See more: https://github.com/jsx-eslint/eslint-plugin-react/issues/2856

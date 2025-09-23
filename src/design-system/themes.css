@@ -1,0 +1,72 @@
+/**
+ * Gruvbox Theme System
+ *
+ * Default theme is dark (defined in :root).
+ * Use data-theme="light" to switch to light theme.
+ *
+ * Usage:
+ * <body data-theme="light">  - Light theme
+ * <body>                     - Dark theme (default)
+ */
+
+/**
+ * Default theme - Dark Gruvbox
+ * This :root block merges with the one in tokens.css
+ */
+:root {
+  /* === SEMANTIC COLORS - DARK THEME === */
+
+  /* Background colors */
+  --bg-primary: var(--gruvbox-dark0);
+  --bg-secondary: var(--gruvbox-dark1);
+  --bg-tertiary: var(--gruvbox-dark2);
+  --bg-overlay: var(--gruvbox-dark0-hard);
+
+  /* Foreground colors */
+  --fg-primary: var(--gruvbox-light0);
+  --fg-secondary: var(--gruvbox-light2);
+  --fg-tertiary: var(--gruvbox-light4);
+  --fg-muted: var(--gruvbox-dark4);
+
+  /* State colors */
+  --color-success: var(--gruvbox-bright-green);
+  --color-warning: var(--gruvbox-bright-yellow);
+  --color-error: var(--gruvbox-bright-red);
+  --color-info: var(--gruvbox-bright-blue);
+}
+
+/**
+ * Light theme override
+ * Apply data-theme="light" to body or root element
+ */
+[data-theme="light"] {
+  /* Background colors */
+  --bg-primary: var(--gruvbox-light0);
+  --bg-secondary: var(--gruvbox-light1);
+  --bg-tertiary: var(--gruvbox-light2);
+  --bg-overlay: var(--gruvbox-light0-hard);
+
+  /* Foreground colors */
+  --fg-primary: var(--gruvbox-dark0);
+  --fg-secondary: var(--gruvbox-dark2);
+  --fg-tertiary: var(--gruvbox-dark4);
+  --fg-muted: var(--gruvbox-light4);
+
+  /* State colors remain the same in light theme */
+}
+
+/**
+ * Global styles
+ */
+
+body {
+  line-height: var(--line-height-normal);
+  font-family: var(--font-body);
+  color: var(--fg-primary);
+  background-color: var(--bg-primary);
+}
+
+::selection {
+  color: var(--bg-primary);
+  background-color: var(--fg-primary);
+}

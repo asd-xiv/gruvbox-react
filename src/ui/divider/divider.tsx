@@ -76,8 +76,3 @@ Divider.displayName = "GruvboxDivider"
 
 export { Divider }
 export type { DividerProps }
-
-// NOTE 󱇽: Improved JSDoc comments with detailed descriptions and formatting
-// NOTE 󱇽: Simplified the conditional rendering using logical AND
-// NOTE 󱇽: Used object dot notation for base CSS class
-// NOTE 󱇽: Added comprehensive examples in JSDoc

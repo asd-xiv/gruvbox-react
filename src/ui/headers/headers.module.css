@@ -1,27 +1,41 @@
 .heading-base {
-  @apply font-heading font-bold tracking-tight;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-tight);
 }
 
 .h1 {
-  @apply heading-base text-2xl desktop:text-3xl;
+  font-size: var(--font-size-2xl);
+}
+
+@media (--desktop) {
+  .h1 {
+    font-size: var(--font-size-3xl);
+  }
 }
 
 .h2 {
-  @apply heading-base text-xl desktop:text-2xl;
+  font-size: var(--font-size-xl);
+}
+
+@media (--desktop) {
+  .h2 {
+    font-size: var(--font-size-2xl);
+  }
 }
 
 .h3 {
-  @apply heading-base text-lg;
+  font-size: var(--font-size-lg);
 }
 
 .h4 {
-  @apply heading-base text-base;
+  font-size: var(--font-size-base);
 }
 
 .h5 {
-  @apply heading-base text-base;
+  font-size: var(--font-size-base);
 }
 
 .h6 {
-  @apply heading-base text-base;
+  font-size: var(--font-size-base);
 }

@@ -1,0 +1,14 @@
+/**
+ * Gruvbox Design System Entry Point
+ *
+ * Import this file to get the complete design system:
+ * - Base styles and resets
+ * - Design tokens (CSS custom properties)
+ * - Utility classes
+ */
+
+@import "./reset.css";
+@import "./tokens.css";
+@import "./themes.css";
+@import "./fonts.css";
+@import "./utilities.css";

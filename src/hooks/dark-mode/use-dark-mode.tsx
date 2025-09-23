@@ -9,15 +9,22 @@ import type { DarkModeContextType } from "./dark-mode-provider.js"
  * via `prefers-color-scheme` media query;
  * - Local storage is used for long term persistence between sessions
  * - State is updated/overwritten on system preference change;
+ * - Automatically sets `data-theme` attribute on document body
  *
- * @returns [isDarkMode, setIsDarkMode]
+ * @returns [isDarkMode, { setDarkMode, toggleDarkMode }]
  *
  * @example
  * ```tsx
- * const [isDark, setIsDark] = useDarkMode()
+ * const [isDark, { setDarkMode, toggleDarkMode }] = useDarkMode()
  *
- * <button onClick={() => setIsDark(prev => !prev)}>
+ * // Toggle between themes
+ * <button onClick={toggleDarkMode}>
  *   {isDark ? "Light Mode" : "Dark Mode"}
+ * </button>
+ *
+ * // Set specific theme
+ * <button onClick={() => setDarkMode(false)}>
+ *   Force Light Mode
  * </button>
  * ```
  */

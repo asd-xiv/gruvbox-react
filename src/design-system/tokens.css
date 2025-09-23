@@ -1,0 +1,128 @@
+/**
+ * Gruvbox Design Tokens
+ *
+ * Terminal-inspired design system with minimal, purposeful values.
+ * Based on the Gruvbox color scheme: https://github.com/morhetz/gruvbox
+ */
+
+:root {
+  /* === COLORS === */
+
+  /* Base colors */
+  --gruvbox-dark0-hard: #1d2021;
+  --gruvbox-dark0: #282828;
+  --gruvbox-dark0-soft: #32302f;
+  --gruvbox-dark1: #3c3836;
+  --gruvbox-dark2: #504945;
+  --gruvbox-dark3: #665c54;
+  --gruvbox-dark4: #7c6f64;
+
+  --gruvbox-light0-hard: #f9f5d7;
+  --gruvbox-light0: #fbf1c7;
+  --gruvbox-light0-soft: #f2e5bc;
+  --gruvbox-light1: #ebdbb2;
+  --gruvbox-light2: #d5c4a1;
+  --gruvbox-light3: #bdae93;
+  --gruvbox-light4: #a89984;
+
+  /* Accent colors */
+  --gruvbox-bright-red: #fb4934;
+  --gruvbox-bright-green: #b8bb26;
+  --gruvbox-bright-yellow: #fabd2f;
+  --gruvbox-bright-blue: #83a598;
+  --gruvbox-bright-purple: #d3869b;
+  --gruvbox-bright-aqua: #8ec07c;
+  --gruvbox-bright-orange: #fe8019;
+
+  --gruvbox-neutral-red: #cc241d;
+  --gruvbox-neutral-green: #98971a;
+  --gruvbox-neutral-yellow: #d79921;
+  --gruvbox-neutral-blue: #458588;
+  --gruvbox-neutral-purple: #b16286;
+  --gruvbox-neutral-aqua: #689d6a;
+  --gruvbox-neutral-orange: #d65d0e;
+
+  /* === SPACING === */
+
+  /* Terminal-inspired unit system */
+  --unit: 0.5rem; /* 8px - base unit */
+  --unit-2: 1rem; /* 16px - 2 units */
+  --unit-3: 1.5rem; /* 24px - 3 units */
+  --unit-4: 2rem; /* 32px - 4 units */
+  --unit-6: 3rem; /* 48px - 6 units */
+  --unit-8: 4rem; /* 64px - 8 units */
+  --unit-12: 6rem; /* 96px - 12 units */
+  --unit-16: 8rem; /* 128px - 16 units */
+
+  /* === TYPOGRAPHY === */
+
+  /* Font families */
+  --font-mono: "JetBrains Mono Nerd", "JetBrains Mono", "Fira Code", monospace;
+  --font-heading: var(--font-mono);
+  --font-body: var(--font-mono);
+
+  /* Font sizes - terminal scale */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+
+  /* Font weights */
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+
+  /* Line heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* Letter spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.025em;
+
+  /* === BORDERS === */
+
+  /* Border widths */
+  --border-width-thin: 1px;
+  --border-width-thick: 2px;
+
+  /* Border radius - minimal, terminal-inspired */
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+
+  /* === SHADOWS === */
+
+  /* Subtle shadows for depth */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* === TRANSITIONS === */
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* === BREAKPOINTS === */
+
+  --breakpoint-mobile: 640px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1280px;
+}
+
+/**
+ * Custom Media Queries
+ * These can be used in @media rules throughout the design system
+ */
+@custom-media --mobile (min-width: 640px);
+@custom-media --tablet (min-width: 768px);
+@custom-media --desktop (min-width: 1024px);
+@custom-media --wide (min-width: 1280px);

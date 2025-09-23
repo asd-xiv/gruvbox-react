@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect, useMemo, useState } from "react"
 import type { Dispatch, FC, PropsWithChildren, SetStateAction } from "react"
 
 /**
@@ -7,9 +7,14 @@ import type { Dispatch, FC, PropsWithChildren, SetStateAction } from "react"
 const DARK_MODE_MEDIA = window.matchMedia("(prefers-color-scheme: dark)")
 
 /**
- * Dark mode state and setter function
+ * Dark mode state and actions
  */
-type DarkModeContextType = [boolean, Dispatch<SetStateAction<boolean>>]
+type DarkModeActions = {
+  setDarkMode: Dispatch<SetStateAction<boolean>>
+  toggleDarkMode: () => void
+}
+
+type DarkModeContextType = [boolean, DarkModeActions]
 
 /**
  * Controls how dark mode behaves and persists
@@ -78,12 +83,38 @@ const DarkModeProvider: FC<PropsWithChildren<DarkModeProviderProps>> = ({
     localStorage.setItem(storageKey, String(isDarkMode))
   }, [isDarkMode, storageKey])
 
+  // Update data-theme attribute on document body
+  useEffect(() => {
+    const theme = isDarkMode ? "dark" : "light"
+    document.body.setAttribute("data-theme", theme)
+
+    // Cleanup: remove attribute on unmount
+    return () => {
+      document.body.removeAttribute("data-theme")
+    }
+  }, [isDarkMode])
+
+  const actions = useMemo<DarkModeActions>(
+    () => ({
+      setDarkMode: setIsDarkMode,
+      toggleDarkMode: () => {
+        setIsDarkMode(previous => !previous)
+      },
+    }),
+    [setIsDarkMode]
+  )
+
+  const value = useMemo<DarkModeContextType>(
+    () => [isDarkMode, actions],
+    [isDarkMode, actions]
+  )
+
   return (
-    <DarkModeContext.Provider value={[isDarkMode, setIsDarkMode]}>
+    <DarkModeContext.Provider value={value}>
       {children}
     </DarkModeContext.Provider>
   )
 }
 
 export { DarkModeContext, DarkModeProvider }
-export type { DarkModeContextType, DarkModeProviderProps }
+export type { DarkModeActions, DarkModeContextType, DarkModeProviderProps }

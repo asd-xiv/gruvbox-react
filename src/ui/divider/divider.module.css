@@ -1,13 +1,17 @@
 .divider-base {
-  @apply w-full border-border mb-4 h-1;
+  composes: block from global;
+  width: 100%;
+  margin-bottom: var(--unit-4);
+  height: var(--unit);
+  border-color: var(--fg-tertiary);
 }
 
 .size-sm {
-  @apply h-0.5;
+  height: calc(var(--unit) / 2);
 }
 
 .size-lg {
-  @apply h-2;
+  height: var(--unit-2);
 }
 
 /**
@@ -15,25 +19,26 @@
  */
 
 .variant-ascii {
-  font-weight: bold;
-
-  @apply text-accent font-mono mt-4;
+  composes: font-mono font-bold from global;
+  margin-top: var(--unit-4);
+  color: var(--fg-primary);
 }
 
 .simple-normal {
-  border-top: 1px solid;
+  composes: border-t border-solid from global;
+  border-color: var(--fg-tertiary);
 }
 
 .simple-thick {
-  border-top: 2px solid;
+  border-top: var(--border-width-thick) solid var(--fg-tertiary);
 }
 
 .double-normal {
-  border-top: 1px solid;
-  border-bottom: 1px solid;
+  composes: border-t border-b border-solid from global;
+  border-color: var(--fg-tertiary);
 }
 
 .double-thick {
-  border-top: 2px solid;
-  border-bottom: 2px solid;
+  border-top: var(--border-width-thick) solid var(--fg-tertiary);
+  border-bottom: var(--border-width-thick) solid var(--fg-tertiary);
 }

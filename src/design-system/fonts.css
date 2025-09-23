@@ -1,0 +1,22 @@
+/**
+ * Font Face Declarations
+ *
+ *
+ * JetBrains Mono Nerd Font - monospace font for terminal aesthetics
+ */
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/JetBrainsMono-Nerd-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 700;
+  src: url("./fonts/JetBrainsMono-Nerd-Bold.ttf") format("truetype");
+  font-display: swap;
+}
