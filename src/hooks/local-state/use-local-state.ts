@@ -11,8 +11,29 @@ type LocalState<T> = {
 /**
  * Sister hook to React's `useState` with Local Storage persistence.
  *
- * @param id Local Storage key/namespace
- * @param defaultValue
+ * Automatically persists state changes to localStorage and restores state
+ * from localStorage on component mount. Handles corrupted data gracefully
+ * by falling back to the default value.
+ *
+ * @param id - Unique identifier for the localStorage key (prefixed with 'use-local-storage_')
+ * @param defaultValue - Default value to use when no localStorage data exists or data is corrupted
+ * @returns Tuple of [state, setState] similar to useState
+ *
+ * @example
+ * ```tsx
+ * // Simple string storage
+ * const [name, setName] = useLocalState("userName", "Anonymous")
+ *
+ * // Complex object storage
+ * const [settings, setSettings] = useLocalState("userSettings", {
+ *   theme: "dark",
+ *   language: "en"
+ * })
+ *
+ * // Updates automatically persist to localStorage
+ * setName("John Doe")
+ * setSettings({ theme: "light", language: "es" })
+ * ```
  */
 const useLocalState = <T>(
   id: string,
