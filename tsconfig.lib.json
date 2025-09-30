@@ -7,5 +7,5 @@
     "outDir": "./dist/types"
   },
   "include": ["src", "types"],
-  "exclude": ["node_modules", "dist", "coverage", "src/**/*.test.tsx"]
+  "exclude": ["node_modules", "dist", "coverage", "src/**/*.test.ts", "src/**/*.test.tsx"]
 }
