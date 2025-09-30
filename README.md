@@ -3,7 +3,7 @@
 
 # @asd14/gruvbox-react
 
-> :computer: (yet another) Terminal inspired React UI kit :sparkles:
+> :computer: Terminal/Gruvbox inspired React UI kit :sparkles:
 
 - :art: [Gruvbox][intro_gruv] color scheme
 - :zap: [Postcss][intro_postcss] is all you need

@@ -1,50 +1,31 @@
+import { strictEqual, deepStrictEqual } from "node:assert"
+import { describe, test, beforeEach } from "node:test"
 import { renderHook, act } from "@testing-library/react"
-import { useLocalState } from "./use-local-state.ts"
+import { useLocalState } from "./use-local-state.js"
 
-// Mock localStorage
-const localStorageMock = (() => {
-  let store: Record<string, string | undefined> = {}
-
-  return {
-    getItem: (key: string) => store[key] || null,
-    setItem: (key: string, value: string) => {
-      store[key] = value
-    },
-    removeItem: (key: string) => {
-      store[key] = undefined
-    },
-    clear: () => {
-      store = {}
-    },
-  }
-})()
-
-Object.defineProperty(window, "localStorage", {
-  value: localStorageMock,
-})
-
-describe("useLocalState :: Sister hook to React's `useState` with Local Storage persistence", () => {
+void describe("useLocalState :: Sister hook to React's `useState` with Local Storage persistence", () => {
   beforeEach(() => {
     localStorage.clear()
   })
 
-  test("given [no initial value] should [return state as undefined]", () => {
+  void test("given [no initial value] should [return state as undefined]", () => {
     const { result } = renderHook(() => useLocalState("test-id"))
-    expect(result.current[0]).toBe(undefined)
+    strictEqual(result.current[0], undefined)
   })
 
-  test("given [initial value] should [return initial value and persist to localStorage]", () => {
+  void test("given [initial value] should [return initial value and persist to localStorage]", () => {
     const { result } = renderHook(() =>
       useLocalState("test-with-default", "initial")
     )
 
-    expect(result.current[0]).toBe("initial")
-    expect(localStorage.getItem("use-local-storage_test-with-default")).toBe(
+    strictEqual(result.current[0], "initial")
+    strictEqual(
+      localStorage.getItem("use-local-storage_test-with-default"),
       JSON.stringify({ _data: "initial" })
     )
   })
 
-  test("given [existing localStorage data] should [return persisted value]", () => {
+  void test("given [existing localStorage data] should [return persisted value]", () => {
     // Pre-populate localStorage
     localStorage.setItem(
       "use-local-storage_existing",
@@ -53,35 +34,37 @@ describe("useLocalState :: Sister hook to React's `useState` with Local Storage 
 
     const { result } = renderHook(() => useLocalState("existing", "default"))
 
-    expect(result.current[0]).toBe("persisted")
+    strictEqual(result.current[0], "persisted")
   })
 
-  test("given [state update] should [update localStorage]", () => {
+  void test("given [state update] should [update localStorage]", () => {
     const { result } = renderHook(() => useLocalState<string>("updatable"))
 
     act(() => {
       result.current[1]("updated value")
     })
 
-    expect(result.current[0]).toBe("updated value")
-    expect(localStorage.getItem("use-local-storage_updatable")).toBe(
+    strictEqual(result.current[0], "updated value")
+    strictEqual(
+      localStorage.getItem("use-local-storage_updatable"),
       JSON.stringify({ _data: "updated value" })
     )
   })
 
-  test("given [corrupted localStorage data] should [fall back to default value]", () => {
+  void test("given [corrupted localStorage data] should [fall back to default value]", () => {
     // Set invalid JSON
     localStorage.setItem("use-local-storage_corrupted", "invalid json")
 
     const { result } = renderHook(() => useLocalState("corrupted", "fallback"))
 
-    expect(result.current[0]).toBe("fallback")
-    expect(localStorage.getItem("use-local-storage_corrupted")).toBe(
+    strictEqual(result.current[0], "fallback")
+    strictEqual(
+      localStorage.getItem("use-local-storage_corrupted"),
       JSON.stringify({ _data: "fallback" })
     )
   })
 
-  test("given [missing _data property] should [fall back to default value]", () => {
+  void test("given [missing _data property] should [fall back to default value]", () => {
     // Set valid JSON but wrong structure
     localStorage.setItem(
       "use-local-storage_wrong-structure",
@@ -92,10 +75,10 @@ describe("useLocalState :: Sister hook to React's `useState` with Local Storage 
       useLocalState("wrong-structure", "fallback")
     )
 
-    expect(result.current[0]).toBe("fallback")
+    strictEqual(result.current[0], "fallback")
   })
 
-  test("given [complex object] should [persist and restore correctly]", () => {
+  void test("given [complex object] should [persist and restore correctly]", () => {
     const initialObject = {
       name: "test",
       nested: { value: 42 },
@@ -104,7 +87,7 @@ describe("useLocalState :: Sister hook to React's `useState` with Local Storage 
 
     const { result } = renderHook(() => useLocalState("complex", initialObject))
 
-    expect(result.current[0]).toEqual(initialObject)
+    deepStrictEqual(result.current[0], initialObject)
 
     const updatedObject = {
       name: "updated test",
@@ -116,8 +99,9 @@ describe("useLocalState :: Sister hook to React's `useState` with Local Storage 
       result.current[1](updatedObject)
     })
 
-    expect(result.current[0]).toEqual(updatedObject)
-    expect(localStorage.getItem("use-local-storage_complex")).toBe(
+    deepStrictEqual(result.current[0], updatedObject)
+    strictEqual(
+      localStorage.getItem("use-local-storage_complex"),
       JSON.stringify({ _data: updatedObject })
     )
   })
