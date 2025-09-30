@@ -75,6 +75,7 @@
   "dependencies": {
     "@asd14/node-utils": "^2.0.0",
     "@radix-ui/react-slot": "^1.2.3",
+    "@swc/helpers": "^0.5.17",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1"
   },
@@ -82,17 +83,25 @@
     "@asd14/eslint-config": "^14.4.0",
     "@asd14/prettier-config": "^1.1.0",
     "@asd14/ts-config": "^1.1.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@semantic-release/git": "^10.0.1",
     "@testing-library/react": "^16.3.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
     "jsdom": "^27.0.0",
-    "tsx": "^4.20.6",
     "lucide-react": "^0.544",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "eslint": "^9.35.0",
+    "prettier": "^3.6.2",
+    "semantic-release": "^24.2.8",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   },
   "peerDependencies": {
     "lucide-react": "^0.544",
