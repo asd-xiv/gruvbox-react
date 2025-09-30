@@ -1,4 +1,4 @@
-name: Release
+name: Publish to NPM
 on:
   push:
     branches:
@@ -23,8 +23,11 @@ jobs:
         run: echo "node_version=$(cat .nvmrc)" >> $GITHUB_OUTPUT
 
       - name: Generate node_modules cache key
+        env:
+          # Increment manually for cache busting
+          CACHE_VERSION: "v3"
         id: node-modules-cache-key
-        run: echo "key=${{ runner.os }}-node-modules-$(cat package-lock.json | shasum -a 256 | cut -d ' ' -f 1)-v2" >> $GITHUB_OUTPUT
+        run: echo "key=${{ runner.os }}-node-modules-$(cat package-lock.json | shasum -a 256 | cut -d ' ' -f 1)-${{ env.CACHE_VERSION }}" >> $GITHUB_OUTPUT
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
