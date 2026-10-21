@@ -1,0 +1,16 @@
+/**
+ * Breakpoints, as custom media queries
+ *
+ * No browser runs `@custom-media` yet. A PostCSS plugin, eg. postcss-preset-env,
+ * replaces each `(--name)` with its query at build time. It resolves only the
+ * definitions it sees in the same file, so:
+ *
+ * - The design-system stylesheet `@import`s this file first
+ * - An app that uses the names in its CSS modules feeds this file to every
+ *   module, eg. with @csstools/postcss-global-data
+ */
+
+@custom-media --mobile (min-width: 640px);
+@custom-media --tablet (min-width: 768px);
+@custom-media --desktop (min-width: 1024px);
+@custom-media --wide (min-width: 1280px);

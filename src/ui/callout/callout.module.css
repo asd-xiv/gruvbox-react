@@ -1,14 +1,15 @@
 /**
  * GitHub-style Callout Component
  *
- * Terminal-inspired design with Gruvbox colors
+ * Terminal-inspired design with Gruvbox colors. Each variant sets one accent
+ * color, for the border and the title
  */
 
 .base {
   composes: border border-solid rounded-md my-4 p-3 from global;
-  background-color: var(--bg-secondary);
-  border-color: var(--fg-muted);
-  font-family: var(--font-mono);
+  border-color: var(--gvb-callout-accent);
+  font-family: var(--gvb-font-mono);
+  background-color: var(--gvb-bg-secondary);
 }
 
 .header {
@@ -22,58 +23,35 @@
 
 .title {
   composes: font-bold text-sm from global;
-  letter-spacing: var(--letter-spacing-wide);
+  margin: 0;
+  letter-spacing: var(--gvb-letter-spacing-wide);
   text-transform: uppercase;
+  color: var(--gvb-callout-accent);
 }
 
 .content {
   composes: text-sm leading-normal from global;
-  color: var(--fg-secondary);
+  color: var(--gvb-fg-secondary);
 }
 
-/* === VARIANT STYLES === */
+/* === VARIANTS === */
 
 .variant-note {
-  border-color: var(--gruvbox-bright-blue);
-  background-color: var(--bg-secondary);
-}
-
-.variant-note .title {
-  color: var(--gruvbox-bright-blue);
+  --gvb-callout-accent: var(--gvb-bright-blue);
 }
 
 .variant-tip {
-  border-color: var(--gruvbox-bright-green);
-  background-color: var(--bg-secondary);
-}
-
-.variant-tip .title {
-  color: var(--gruvbox-bright-green);
+  --gvb-callout-accent: var(--gvb-bright-green);
 }
 
 .variant-important {
-  border-color: var(--gruvbox-bright-purple);
-  background-color: var(--bg-secondary);
-}
-
-.variant-important .title {
-  color: var(--gruvbox-bright-purple);
+  --gvb-callout-accent: var(--gvb-bright-purple);
 }
 
 .variant-warning {
-  border-color: var(--gruvbox-bright-yellow);
-  background-color: var(--bg-secondary);
-}
-
-.variant-warning .title {
-  color: var(--gruvbox-bright-yellow);
+  --gvb-callout-accent: var(--gvb-bright-yellow);
 }
 
 .variant-caution {
-  border-color: var(--gruvbox-bright-red);
-  background-color: var(--bg-secondary);
-}
-
-.variant-caution .title {
-  color: var(--gruvbox-bright-red);
+  --gvb-callout-accent: var(--gvb-bright-red);
 }

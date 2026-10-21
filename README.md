@@ -45,7 +45,6 @@ This package requires and assumes you already installed:
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
-    "lucide-react": "^0.544",
   },
 ```
 
@@ -53,19 +52,19 @@ This package requires and assumes you already installed:
 
 ```tsx
 // src/index.tsx
-import { DarkModeProvider, useDarkMode } from "@asd14/gruvbox-react/hooks"
-import { Button, Header1, Callout } from "@asd14/gruvbox-react/ui"
-import { Sun, Moon } from "@asd14/gruvbox-react/icons-lucide"
+import { useColorScheme } from "@asd14/gruvbox-react/hooks"
+import { icons } from "@asd14/gruvbox-react/icons-nerd"
+import { Button, Callout, ColorSchemeRoot } from "@asd14/gruvbox-react/ui"
 
 const MyComponent = () => {
-  const [isDark, { toggleDarkMode }] = useDarkMode()
+  const [{ isDarkMode }, { toggleDarkMode }] = useColorScheme()
 
   return (
     <div>
-      <Header1>Terminal UI</Header1>
+      <h1>Terminal UI</h1>
 
       <Button onClick={toggleDarkMode} variant="outline">
-        {isDark ? <Sun /> : <Moon />}
+        {isDarkMode ? icons.fa.sun : icons.fa.moon}
         Toggle Theme
       </Button>
 
@@ -76,14 +75,17 @@ const MyComponent = () => {
   )
 }
 
-const App = () => {
-  return (
-    <DarkModeProvider>
-      <MyComponent />
-    </DarkModeProvider>
-  )
-}
+const App = () => (
+  <ColorSchemeRoot>
+    <MyComponent />
+  </ColorSchemeRoot>
+)
 ```
+
+The library styles apply only inside `<ColorSchemeRoot>`. The rest of the page,
+and other apps on it, keep their own styles. Mark an element with
+`data-gvb-boundary` to stop the library styles there, eg. the element another
+app mounts into.
 
 ## Changelog
 
@@ -92,4 +94,4 @@ for details.
 
 ## License
 
-MIT
+Apache-2.0

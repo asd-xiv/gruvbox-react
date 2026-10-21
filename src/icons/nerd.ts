@@ -181,6 +181,11 @@ const nerdFont = {
     home: "",
     home_fill: "",
   },
+  fa: {
+    sun: "",
+    moon: "",
+    desktop: "",
+  },
 } as const
 
 /**
@@ -209,18 +214,15 @@ const ui = {
 } as const
 
 const icons = {
-  ...status,
-  ...navigation,
-  ...shapes,
-  ...lines,
-  ...doubleLines,
-  ...dashedLines,
-  ...ascii,
+  status,
+  navigation,
+  shapes,
+  lines,
+  doubleLines,
+  dashedLines,
+  ascii,
   ...nerdFont,
-  ...ui,
+  ui,
 } as const
 
-type IconKey = keyof typeof icons
-
 export { icons }
-export { IconKey }

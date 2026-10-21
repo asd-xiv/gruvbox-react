@@ -1,0 +1,64 @@
+/**
+ * Tri-State Switch Styles
+ *
+ * A track with three positions and a thumb that slides to the checked one
+ */
+
+.switch {
+  composes: rounded-md from global;
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(3, var(--gvb-unit-4));
+  height: var(--gvb-unit-4);
+  padding: 2px;
+  background-color: var(--gvb-bg-tertiary);
+}
+
+.thumb {
+  composes: rounded-sm shadow-sm from global;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: var(--gvb-unit-4);
+  height: calc(100% - 4px);
+  background-color: var(--gvb-bg-primary);
+  transition: transform var(--gvb-transition-fast);
+}
+
+/* The checked radio moves the thumb. The labels are the 2nd and 3rd of type */
+.switch:has(.option:nth-of-type(2) .input:checked) .thumb {
+  transform: translateX(100%);
+}
+
+.switch:has(.option:nth-of-type(3) .input:checked) .thumb {
+  transform: translateX(200%);
+}
+
+.option {
+  position: relative;
+  display: grid;
+  place-items: center;
+  font-family: var(--gvb-font-mono);
+  color: var(--gvb-fg-tertiary);
+  cursor: pointer;
+}
+
+.option:hover,
+.option:has(.input:checked) {
+  color: var(--gvb-fg-primary);
+}
+
+.option:has(.input:focus-visible) {
+  outline: var(--gvb-focus-ring);
+  outline-offset: -2px;
+  border-radius: var(--gvb-radius-sm);
+}
+
+/* The radio stays in the page for the keyboard and screen readers */
+.input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}

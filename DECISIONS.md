@@ -1,38 +1,86 @@
-# `@asd14/gruvbox-react` package decisions
+# `@asd14/gruvbox-react` library decisions
 
-This file contains details about why certain package decisions where taken.
+This file holds the decisions whose "why" the code and the other docs do not
+show. It is not a todo list, release notes or a session log.
 
 <!-- vim-markdown-toc GFM -->
 
-- [1. Add separate CJS build](#1-add-separate-cjs-build)
-- [2. Disable `react/require-default-props`](#2-disable-reactrequire-default-props)
+- [3. Forward a ref only from an interactive element, an app needs a ref to focus or anchor to it](#3-forward-a-ref-only-from-an-interactive-element-an-app-needs-a-ref-to-focus-or-anchor-to-it)
+- [2. Hold the color scheme in `<ColorSchemeRoot>`, a page-wide color scheme reached other apps and painted late](#2-hold-the-color-scheme-in-colorschemeroot-a-page-wide-color-scheme-reached-other-apps-and-painted-late)
+- [1. Add a CommonJS build, `postcss-loader` loads plugins with `require`](#1-add-a-commonjs-build-postcss-loader-loads-plugins-with-require)
+  - [1.1 drop | Publish ESM and CSS only, no app loads the library through `postcss-loader` now](#11-drop--publish-esm-and-css-only-no-app-loads-the-library-through-postcss-loader-now)
 
 <!-- vim-markdown-toc -->
 
-## 1. Add separate CJS build
+## 3. Forward a ref only from an interactive element, an app needs a ref to focus or anchor to it
+
+**Date**: 21st of October, 2026
+
+**Problem**:
+
+- An app needs a ref to an interactive element, eg. to focus a button or anchor
+  a popover to it
+- An app needs no ref to a layout part
+
+**Solution**:
+
+- A component that renders one interactive element forwards a ref, eg. `Button`
+- Every other component takes no ref, eg. `SidebarHeader`, `Callout`
+
+## 2. Hold the color scheme in `<ColorSchemeRoot>`, a page-wide color scheme reached other apps and painted late
+
+**Date**: 21st of October, 2026
+
+**Problem**:
+
+- The library styled the whole page: the reset, `body`, `h1`-`h6`, the utility
+  classes and the `:root` variables
+  - They applied to every app on the page, eg. a microfrontend
+- Generic names, eg. `data-theme` and `--bg-primary`, clashed with the names of
+  other libraries
+- The app had to keep `DarkModeProvider` mounted to write the color scheme to
+  the page
+- Its effect wrote the color scheme, as `data-theme`, after the browser painted
+  - The browser painted the dark default before the user's light choice
+
+**Solution**:
+
+- `<ColorSchemeRoot>` sets the color scheme before the browser paints
+- Scope every library style to `<ColorSchemeRoot>`
+- Prefix every name the library puts on the page with `gvb`, eg.
+  `--gvb-bg-primary`, `data-gvb-color-scheme`
+
+## 1. Add a CommonJS build, `postcss-loader` loads plugins with `require`
 
 **Date**: 2nd of January, 2025
 
-Split `build:src` npm script into `build:src:esm` and `build:src:cjs`. Each
-configuring `swc` to build for a specific module loader.
+**Problem**:
 
-This is needed because `postcss-loader` used in webpack is CommonJS only and
-will error when trying to import an ESM only package.
+- `postcss-loader`, in webpack, loads a PostCSS plugin with `require`
+  - `require` fails on an ESM-only package:
 
-```
-Error: Module build failed (from ../../../../node_modules/postcss-loader/dist/cjs.js):
-Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: No "exports" main defined in node_modules/@asd14/tailwind-gruvbox/package.json
-    at exportsNotFound (node:internal/modules/esm/resolve:304:10)
-```
+    ```text
+    Error: Module build failed (from ../../../../node_modules/postcss-loader/dist/cjs.js):
+    Error [ERR_PACKAGE_PATH_NOT_EXPORTED]: No "exports" main defined in node_modules/@asd14/tailwind-gruvbox/package.json
+        at exportsNotFound (node:internal/modules/esm/resolve:304:10)
+    ```
 
-## 2. Disable `react/require-default-props`
+**Solution**:
 
-**Date**: 3rd of January, 2025
+- Split `build:src` into `build:src:esm` and `build:src:cjs`
+  - Each runs `swc` for one module system, ESM or CommonJS
 
-This rule aims to ensure that any non-required prop types of a component has a
-corresponding `defaultProps` value.
+### 1.1 drop | Publish ESM and CSS only, no app loads the library through `postcss-loader` now
 
-While it works with functional components, it does not work with `forwardRef`
-which we are using in every UI component.
+**Date**: 20th of October, 2026
 
-See more: https://github.com/jsx-eslint/eslint-plugin-react/issues/2856
+**Problem**:
+
+- Decision 1 added the CommonJS build for `postcss-loader`
+  - It loaded the library, then named `@asd14/tailwind-gruvbox`, as a PostCSS
+    plugin
+- No app loads the library through `postcss-loader` now
+
+**Solution**:
+
+- Drop `build:src:cjs` and the `require` entries in `exports`

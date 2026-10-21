@@ -1,19 +1,13 @@
-import { clsx } from "clsx"
-import type { ClassValue } from "clsx"
-
 /**
- * Combines multiple class names using clsx.
+ * Join the class names that are set, and skip `false` and `undefined`.
  *
  * @example
- *
  * ```tsx
- * cn("flex items-center", {
- *   "bg-primary": true,
- *   "text-error": false
- * }, ["p-2"])
- * // => 'flex items-center bg-primary p-2'
+ * cn(css["base"], isActive && css["active"], className)
+ * // => "base active"
  * ```
  */
-export const cn = (...inputs: ClassValue[]) => {
-  return clsx(inputs)
-}
+const cn = (...classNames: (string | false | undefined)[]) =>
+  classNames.filter(Boolean).join(" ")
+
+export { cn }

@@ -1,0 +1,88 @@
+/**
+ * Sidebar Component Styles
+ *
+ * Static terminal-style side panel with Gruvbox colors
+ */
+
+.sidebar {
+  composes: flex flex-col from global;
+  position: sticky;
+  top: 0;
+  flex-shrink: 0;
+  width: var(--gvb-sidebar-width);
+  height: 100dvh;
+  border-right: var(--gvb-border-width-thin) solid var(--gvb-bg-tertiary);
+  font-family: var(--gvb-font-mono);
+  background-color: var(--gvb-bg-overlay);
+}
+
+.header {
+  composes: flex items-center gap-2 font-bold from global;
+  padding: var(--gvb-unit-2);
+  color: var(--gvb-fg-primary);
+}
+
+.content {
+  composes: flex flex-col flex-1 gap-2 from global;
+  overflow-y: auto;
+  padding: var(--gvb-unit);
+}
+
+.footer {
+  composes: flex items-center gap-2 from global;
+  padding: var(--gvb-unit-2);
+  border-top: var(--gvb-border-width-thin) solid var(--gvb-bg-tertiary);
+}
+
+/* === GROUP === */
+
+.group-label {
+  margin: 0;
+  padding: var(--gvb-unit);
+  font-size: var(--gvb-font-size-xs);
+  font-weight: var(--gvb-font-weight-regular);
+  letter-spacing: var(--gvb-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gvb-fg-tertiary);
+}
+
+/* === MENU === */
+
+.menu {
+  composes: flex flex-col from global;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * The menu button is a ghost `Button`. `.menu` raises the specificity above
+ * the Button classes, so these rules win whatever order the bundler loads
+ * the two modules in
+ */
+.menu .menu-button {
+  justify-content: flex-start;
+  gap: var(--gvb-unit);
+  width: 100%;
+  padding: 0 var(--gvb-unit);
+  font-size: var(--gvb-font-size-sm);
+  font-weight: var(--gvb-font-weight-regular);
+  text-align: left;
+  text-decoration: none;
+  color: var(--gvb-fg-secondary);
+}
+
+.menu .menu-button:hover {
+  color: var(--gvb-fg-primary);
+}
+
+.menu .menu-button:focus-visible {
+  outline-offset: -2px;
+}
+
+.menu .menu-button[aria-current="page"] {
+  font-weight: var(--gvb-font-weight-bold);
+  color: var(--gvb-fg-primary);
+  background-color: var(--gvb-bg-tertiary);
+}
