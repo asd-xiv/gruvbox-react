@@ -57,7 +57,7 @@
     "unit-test": "TSX_TSCONFIG_PATH=.tsconfig/tests.json node --import tsx --import ./jsdom.config.js --test 'src/**/*.test.ts'",
     "---BUILD": "",
     "build:types": "tsc --emitDeclarationOnly --project ./.tsconfig/code.json",
-    "build:js": "swc src --out-dir dist --strip-leading-paths --copy-files",
+    "build:js": "swc src --out-dir dist --strip-leading-paths --copy-files --ignore 'src/design-system/**'",
     "build:fonts": "mkdir -p dist/styles && cp -rf src/design-system/fonts dist/styles",
     "build:css": "mkdir -p dist/styles && postcss src/design-system/index.css -o dist/styles/index.css && cp src/design-system/media.css dist/styles",
     "prebuild": "rm -rf dist/* node_modules/.tmp/*.tsbuildinfo",
