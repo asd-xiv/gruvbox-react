@@ -7,9 +7,9 @@
     "types": ["node"],
     "paths": {
       "@self/*": ["./src/*"],
-      "@asd14/gruvbox-react/hooks": ["../src/hooks/index.ts"],
-      "@asd14/gruvbox-react/icons-nerd": ["../src/icons/nerd.ts"],
-      "@asd14/gruvbox-react/ui": ["../src/ui/index.ts"]
+      "@asd14/gruvbox-react/*": ["../src/*"],
+      // Its export name differs from its source path, `src/icons/nerd.ts`
+      "@asd14/gruvbox-react/icons-nerd": ["../src/icons/nerd.ts"]
     }
   },
   "include": ["src"]
