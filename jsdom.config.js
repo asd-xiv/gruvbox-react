@@ -1,14 +1,9 @@
 import { JSDOM } from "jsdom"
 
-/**
- * HTML template for creating a minimal DOM structure
- */
+// HTML template for creating a minimal DOM structure
 const HTML_TEMPLATE = "<!DOCTYPE html><html><body></body></html>"
 
-/**
- * Creates a virtual DOM environment using JSDOM
- * This simulates a browser environment in Node.js for testing
- */
+//Virtual DOM environment to simulates a browser environment in Node.js for testing
 const dom = new JSDOM(HTML_TEMPLATE, {
   url: "http://localhost",
   pretendToBeVisual: true,
