@@ -59,6 +59,7 @@
 
   /* Font families */
   --gvb-font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --gvb-font-code: "Gohu", var(--gvb-font-mono);
   --gvb-font-heading: var(--gvb-font-mono);
   --gvb-font-body: "Merriweather", Georgia, "Times New Roman", serif;
 

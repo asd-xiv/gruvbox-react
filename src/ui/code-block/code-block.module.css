@@ -29,13 +29,21 @@
   margin-left: auto;
 }
 
-/* The code scrolls, the block keeps the width of its parent */
+/* The code scrolls, the block keeps the width of its parent. Gohu is a bitmap
+   font traced on a 14px grid: pin the size, so it stays crisp */
 .code {
-  composes: text-sm leading-normal from global;
+  composes: leading-normal from global;
   margin: 0;
   padding: var(--gvb-unit-2);
   overflow-x: auto;
+  font-size: 14px;
   color: var(--gvb-fg-primary);
+}
+
+/* The global styles give `code` the font of the UI */
+.code code {
+  font-family: var(--gvb-font-code);
+  -webkit-font-smoothing: none;
 }
 
 /* === TOKENS, one class per token type of sugar-high === */

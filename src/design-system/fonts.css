@@ -1,9 +1,18 @@
 /**
  * Font Face Declarations
  *
- * JetBrains Mono Nerd Font - monospace font for code and headings
+ * JetBrains Mono Nerd Font - monospace font for the UI and headings
+ * Gohu - bitmap font for code, by Hugo Chargois (WTFPL-2)
  * Merriweather - serif font for body text
  */
+
+@font-face {
+  font-family: "Gohu";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./fonts/Gohu-Regular.woff2") format("woff2");
+  font-display: swap;
+}
 
 @font-face {
   font-family: "JetBrains Mono";
