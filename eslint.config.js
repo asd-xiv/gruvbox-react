@@ -7,7 +7,12 @@ import {
 
 const SRC_FILES = ["src/**/*.{ts,tsx}"]
 const TEST_FILES = ["src/**/*.test.{ts,tsx}"]
-const DEV_FILES = ["eslint.config.js", "jsdom.config.js", "postcss.config.js"]
+const DEV_FILES = [
+  "eslint.config.js",
+  "jsdom.config.js",
+  "css-modules.config.js",
+  "postcss.config.js",
+]
 
 /** @type {import("eslint").Linter.Config[]} */
 export default [

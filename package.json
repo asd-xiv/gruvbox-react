@@ -54,7 +54,7 @@
     "typecheck:config": "tsc --noEmit --project ./.tsconfig/config.json",
     "typecheck:tests": "tsc --noEmit --project ./.tsconfig/tests.json",
     "typecheck": "npm run typecheck:code && npm run typecheck:config && npm run typecheck:tests",
-    "unit-test": "TSX_TSCONFIG_PATH=.tsconfig/tests.json node --import tsx --import ./jsdom.config.js --test 'src/**/*.test.ts'",
+    "unit-test": "TSX_TSCONFIG_PATH=.tsconfig/tests.json node --import tsx --import ./css-modules.config.js --import ./jsdom.config.js --test 'src/**/*.test.ts' 'src/**/*.test.tsx'",
     "---BUILD": "",
     "build:types": "tsc --emitDeclarationOnly --project ./.tsconfig/code.json",
     "build:js": "swc src --out-dir dist --strip-leading-paths --copy-files --ignore 'src/design-system/**'",
