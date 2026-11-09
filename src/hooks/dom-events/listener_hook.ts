@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 type CustomEvent<T extends Record<string, unknown> = Record<string, unknown>> =
   Event & {
@@ -21,11 +21,21 @@ type CustomEventHandlers = {
  * })
  */
 export const useDomEventsListener = (eventHandlers: CustomEventHandlers) => {
+  // A caller often passes a new object on each render. The listeners call the
+  // latest handlers through this ref, so a new object does not re-add them
+  const handlersRef = useRef(eventHandlers)
+  const eventNames = Object.keys(eventHandlers).join("\n")
+
+  useEffect(() => {
+    handlersRef.current = eventHandlers
+  })
+
+  // Re-add the listeners only when the event names change
   useEffect(() => {
     // For each event handler, create a listener and attach it to window
-    const listeners = Object.entries(eventHandlers).map(([name, handler]) => {
+    const listeners = Object.keys(handlersRef.current).map(name => {
       const listener = (event: CustomEvent) => {
-        handler(event.detail)
+        handlersRef.current[name]?.(event.detail)
       }
       window.addEventListener(name, listener)
       return { name, listener }
@@ -37,5 +47,5 @@ export const useDomEventsListener = (eventHandlers: CustomEventHandlers) => {
         window.removeEventListener(name, listener)
       })
     }
-  }, [eventHandlers])
+  }, [eventNames])
 }
