@@ -11,9 +11,10 @@
   font-family: var(--gvb-font-mono);
 }
 
+/* Dim the text only: an `opacity` would fade the shadow too */
 .base:disabled {
   pointer-events: none;
-  opacity: 0.5;
+  color: var(--gvb-fg-muted);
 }
 
 .base svg {
