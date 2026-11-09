@@ -149,8 +149,9 @@ primitive first). Kept so the skill works alone
     component stays flat
   - Cast it only through the `shadow` utility, `composes: shadow from global`.
     Never write a `box-shadow`
-  - A component with the shadow has a 1px border. A child scrolls, never the
-    component: an `overflow` on the component would clip the shadow
+  - A component with the shadow has a 1px border and square corners. A child
+    scrolls, never the component: an `overflow` on the component would clip the
+    shadow
 - Motion
   - Animate only color, background and transform, with `--gvb-transition-fast`
   - Do not animate under `prefers-reduced-motion: reduce`. In JS, read the query

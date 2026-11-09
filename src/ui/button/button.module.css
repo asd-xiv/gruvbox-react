@@ -5,7 +5,7 @@
  */
 
 .base {
-  composes: inline-flex items-center justify-center gap-2 rounded-sm font-bold text-sm transition-fast cursor-pointer from global;
+  composes: inline-flex items-center justify-center gap-2 font-bold text-sm transition-fast cursor-pointer from global;
   white-space: nowrap;
   border: none;
   font-family: var(--gvb-font-mono);

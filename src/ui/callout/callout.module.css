@@ -6,7 +6,7 @@
  */
 
 .base {
-  composes: border border-solid rounded-md my-4 p-3 shadow from global;
+  composes: border border-solid my-4 p-3 shadow from global;
   border-color: var(--gvb-callout-accent);
   font-family: var(--gvb-font-mono);
   background-color: var(--gvb-bg-secondary);
