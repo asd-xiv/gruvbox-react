@@ -115,14 +115,14 @@ type SidebarMenuButtonProps = Omit<ButtonProps, "variant" | "size"> & {
 }
 
 /**
- * One entry of a sidebar menu, a ghost `Button`. Pass `asChild` to render a
+ * One entry of a sidebar menu, a ghost `Button`. Pass `render` to draw a
  * link. Render it inside `SidebarMenu`, whose styles it extends.
  *
  * @example
  * ```tsx
  * <SidebarMenuButton isActive>Classes</SidebarMenuButton>
- * <SidebarMenuButton asChild>
- *   <a href="#properties">Properties</a>
+ * <SidebarMenuButton render={<a href="#properties" />}>
+ *   Properties
  * </SidebarMenuButton>
  * ```
  */

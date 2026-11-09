@@ -43,6 +43,7 @@ This package requires and assumes you already installed:
 
 ```json
   "peerDependencies": {
+    "@base-ui/react": "^1.9.0",
     "react": "^19",
     "react-dom": "^19",
   },
