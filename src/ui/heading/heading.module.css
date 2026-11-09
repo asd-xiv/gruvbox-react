@@ -1,0 +1,19 @@
+.base {
+  composes: font-bold from global;
+  margin: 0;
+  font-family: var(--gvb-font-heading);
+  line-height: var(--gvb-line-height-tight);
+  color: var(--gvb-fg-primary);
+}
+
+.level-1 {
+  composes: text-2xl from global;
+}
+
+.level-2 {
+  composes: text-xl from global;
+}
+
+.level-3 {
+  composes: text-lg from global;
+}

@@ -20,6 +20,15 @@
   --gvb-color-warning: var(--gvb-bright-yellow);
   --gvb-color-error: var(--gvb-bright-red);
   --gvb-color-info: var(--gvb-bright-blue);
+
+  /* Code colors, one per token type CodeBlock marks */
+  --gvb-code-keyword: var(--gvb-bright-red);
+  --gvb-code-string: var(--gvb-bright-green);
+  --gvb-code-type: var(--gvb-bright-yellow);
+  --gvb-code-tag: var(--gvb-bright-aqua);
+  --gvb-code-property: var(--gvb-bright-blue);
+  --gvb-code-punctuation: var(--gvb-fg-tertiary);
+  --gvb-code-comment: var(--gvb-fg-muted);
 }
 
 /* === DARK === */

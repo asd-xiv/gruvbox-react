@@ -1,0 +1,69 @@
+.base {
+  composes: border border-solid from global;
+  border-color: var(--gvb-fg-tertiary);
+  font-family: var(--gvb-font-mono);
+  background-color: var(--gvb-bg-secondary);
+}
+
+.header {
+  composes: flex items-center gap-2 from global;
+  padding-left: var(--gvb-unit-2);
+  border-bottom: var(--gvb-border-width-thin) solid var(--gvb-fg-tertiary);
+}
+
+.title {
+  composes: text-sm from global;
+  color: var(--gvb-fg-secondary);
+}
+
+.language {
+  composes: text-xs font-bold from global;
+  padding: 0 1ch;
+  border: var(--gvb-border-width-thin) solid var(--gvb-fg-tertiary);
+  letter-spacing: var(--gvb-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gvb-fg-tertiary);
+}
+
+.copy {
+  margin-left: auto;
+}
+
+/* The code scrolls, the block keeps the width of its parent */
+.code {
+  composes: text-sm leading-normal from global;
+  margin: 0;
+  padding: var(--gvb-unit-2);
+  overflow-x: auto;
+  color: var(--gvb-fg-primary);
+}
+
+/* === TOKENS, one class per token type of sugar-high === */
+
+.keyword {
+  color: var(--gvb-code-keyword);
+}
+
+.string {
+  color: var(--gvb-code-string);
+}
+
+.class {
+  color: var(--gvb-code-type);
+}
+
+.entity {
+  color: var(--gvb-code-tag);
+}
+
+.property {
+  color: var(--gvb-code-property);
+}
+
+.sign {
+  color: var(--gvb-code-punctuation);
+}
+
+.comment {
+  color: var(--gvb-code-comment);
+}

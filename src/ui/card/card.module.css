@@ -1,0 +1,22 @@
+.base {
+  composes: border border-solid shadow from global;
+  border-color: var(--gvb-fg-tertiary);
+  background-color: var(--gvb-bg-secondary);
+}
+
+.title {
+  composes: text-xs font-bold from global;
+  padding: var(--gvb-unit) var(--gvb-unit-2);
+  border-bottom: var(--gvb-border-width-thin) solid var(--gvb-fg-tertiary);
+  font-family: var(--gvb-font-mono);
+  letter-spacing: var(--gvb-letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--gvb-fg-secondary);
+}
+
+/* The content scrolls, never the card: an overflow on the card would clip the
+   shadow */
+.content {
+  padding: var(--gvb-unit-2);
+  overflow: auto;
+}
