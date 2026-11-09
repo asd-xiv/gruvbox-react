@@ -38,6 +38,12 @@
   --gvb-fg-secondary: var(--gvb-light2);
   --gvb-fg-tertiary: var(--gvb-light4);
   --gvb-fg-muted: var(--gvb-dark4);
+
+  /* Shadow, for the `shadow` utility. Gray, a lighter block than the page:
+     dark0-hard, the darkest color, nearly vanishes on dark0 */
+  --gvb-shadow-color: var(--gvb-dark3);
+  /* A 2x2 PNG: the shadow color at the top-left and bottom-right pixels */
+  --gvb-shadow-dither: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEUlEQVR42mNIiwn5zwADIA4AI8kEK4yFZGsAAAAASUVORK5CYII=");
 }
 
 /* === LIGHT === */
@@ -57,6 +63,11 @@
   /* dark3, not dark4, for the AA contrast on light2 and light0-hard */
   --gvb-fg-tertiary: var(--gvb-dark3);
   --gvb-fg-muted: var(--gvb-light4);
+
+  /* Shadow, for the `shadow` utility */
+  --gvb-shadow-color: var(--gvb-dark0-hard);
+  /* A 2x2 PNG: the shadow color at the top-left and bottom-right pixels */
+  --gvb-shadow-dither: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAEUlEQVR42mOQVVD8zwADIA4AFfUCu8ZDA2AAAAAASUVORK5CYII=");
 }
 
 /* === GLOBAL STYLES, INSIDE THE SCHEME ELEMENT ONLY === */

@@ -15,7 +15,7 @@
 }
 
 .thumb {
-  composes: rounded-sm shadow-sm from global;
+  composes: rounded-sm from global;
   position: absolute;
   top: 2px;
   left: 2px;

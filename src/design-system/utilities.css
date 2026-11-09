@@ -444,19 +444,44 @@
     border-style: dotted;
   }
 
-  /* === SHADOWS === */
+  /* === SHADOW === */
 
-  .shadow-sm {
-    box-shadow: var(--gvb-shadow-sm);
+  /*
+   * A Turbo Pascal shadow: 8px right and 8px down, no blur. Dots of the
+   * shadow color fake its transparency, as Diablo did. The focused window
+   * and every unit inside it cast it solid. For now, the focused window is a
+   * modal dialog.
+   *
+   * It draws the right and bottom strips outside the box, so a unit with it
+   * has a 1px border, and scrolls inside a child, never itself.
+   *
+   * `:where()` keeps the specificity at zero, so a unit's own `position` wins.
+   * The browser positions a dialog and a popover itself, so the utility
+   * leaves them alone
+   */
+  :where(.shadow:not(dialog, [popover])) {
+    position: relative;
   }
-  .shadow-md {
-    box-shadow: var(--gvb-shadow-md);
+  .shadow::after {
+    content: "";
+    position: absolute;
+    inset: calc(var(--gvb-border-width-thin) * -1);
+    translate: var(--gvb-unit) var(--gvb-unit);
+    clip-path: polygon(
+      calc(100% - var(--gvb-unit)) 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      0 calc(100% - var(--gvb-unit)),
+      calc(100% - var(--gvb-unit)) calc(100% - var(--gvb-unit))
+    );
+    background: var(--gvb-shadow-dither) 0 0 / 2px 2px;
+    image-rendering: pixelated;
+    pointer-events: none;
   }
-  .shadow-lg {
-    box-shadow: var(--gvb-shadow-lg);
-  }
-  .shadow-none {
-    box-shadow: none;
+  :modal.shadow::after,
+  :modal .shadow::after {
+    background: var(--gvb-shadow-color);
   }
 
   /* === POSITIONING === */

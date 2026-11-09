@@ -47,28 +47,54 @@
   padding: 0;
 }
 
+/* === SHADOW === */
+
+/*
+ * A filled or outlined button casts the shadow, and moves onto it when
+ * pressed. The `shadow` utility needs a 1px border, each variant colors it
+ */
+.raised {
+  composes: shadow from global;
+  border: var(--gvb-border-width-thin) solid;
+}
+
+.raised:active {
+  translate: var(--gvb-unit) var(--gvb-unit);
+  transition: none;
+}
+
+.raised:active::after {
+  display: none;
+}
+
 /* === STYLE VARIANTS === */
 
 .variant-default {
+  composes: raised;
   background-color: var(--gvb-bright-blue);
+  border-color: var(--gvb-bright-blue);
   color: var(--gvb-dark0);
 }
 
 .variant-default:hover {
   background-color: var(--gvb-neutral-blue);
+  border-color: var(--gvb-neutral-blue);
 }
 
 .variant-destructive {
+  composes: raised;
   background-color: var(--gvb-bright-red);
+  border-color: var(--gvb-bright-red);
   color: var(--gvb-dark0);
 }
 
 .variant-destructive:hover {
   background-color: var(--gvb-neutral-red);
+  border-color: var(--gvb-neutral-red);
 }
 
 .variant-outline {
-  composes: border border-solid from global;
+  composes: raised;
   background-color: transparent;
   border-color: var(--gvb-fg-tertiary);
   color: var(--gvb-fg-primary);
@@ -80,12 +106,15 @@
 }
 
 .variant-secondary {
+  composes: raised;
   background-color: var(--gvb-bg-tertiary);
+  border-color: var(--gvb-bg-tertiary);
   color: var(--gvb-fg-primary);
 }
 
 .variant-secondary:hover {
   background-color: var(--gvb-bg-secondary);
+  border-color: var(--gvb-bg-secondary);
 }
 
 .variant-ghost {

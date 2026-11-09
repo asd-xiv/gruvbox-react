@@ -100,13 +100,6 @@
   --gvb-radius-md: 4px;
   --gvb-radius-lg: 6px;
 
-  /* === SHADOWS === */
-
-  /* Subtle shadows for depth */
-  --gvb-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --gvb-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --gvb-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-
   /* === TRANSITIONS === */
 
   --gvb-transition-fast: 150ms ease;
