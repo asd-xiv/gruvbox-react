@@ -38,11 +38,11 @@
 /* === VARIANTS === */
 
 .variant-note {
-  --gvb-callout-accent: var(--gvb-bright-blue);
+  --gvb-callout-accent: var(--gvb-color-info);
 }
 
 .variant-tip {
-  --gvb-callout-accent: var(--gvb-bright-green);
+  --gvb-callout-accent: var(--gvb-color-success);
 }
 
 .variant-important {
@@ -50,9 +50,9 @@
 }
 
 .variant-warning {
-  --gvb-callout-accent: var(--gvb-bright-yellow);
+  --gvb-callout-accent: var(--gvb-color-warning);
 }
 
 .variant-caution {
-  --gvb-callout-accent: var(--gvb-bright-red);
+  --gvb-callout-accent: var(--gvb-color-error);
 }
