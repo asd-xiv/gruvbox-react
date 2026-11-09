@@ -67,14 +67,16 @@
     "watch:js": "npm run build:js -- --watch"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.5.0",
-    "@swc/helpers": "^0.5.23"
+    "@swc/helpers": "^0.5.23",
+    "sugar-high": "^2.6.4"
   },
   "devDependencies": {
-    "@asd14/eslint-config": "^16.2.0",
+    "@asd14/eslint-config": "^16.3.0",
     "@asd14/prettier-config": "^1.5.0",
-    "@asd14/semantic-release-config": "^1.0.1",
-    "@asd14/ts-config": "^1.6.0",
+    "@asd14/semantic-release-config": "^1.1.0",
+    "@asd14/ts-config": "^2.0.0",
+    "@asd14/vblocks": "^6.3.0",
+    "@base-ui/react": "^1.9.0",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
     "@swc/cli": "^0.8.1",
@@ -97,6 +99,7 @@
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
+    "@base-ui/react": "^1.9.0",
     "react": "^19",
     "react-dom": "^19"
   }
