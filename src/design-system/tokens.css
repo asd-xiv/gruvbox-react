@@ -54,8 +54,6 @@
   --gvb-unit-4: 2rem; /* 32px - 4 units */
   --gvb-unit-6: 3rem; /* 48px - 6 units */
   --gvb-unit-8: 4rem; /* 64px - 8 units */
-  --gvb-unit-12: 6rem; /* 96px - 12 units */
-  --gvb-unit-16: 8rem; /* 128px - 16 units */
 
   /* === TYPOGRAPHY === */
 
@@ -85,7 +83,6 @@
 
   /* Letter spacing */
   --gvb-letter-spacing-tight: -0.025em;
-  --gvb-letter-spacing-normal: 0;
   --gvb-letter-spacing-wide: 0.025em;
 
   /* === BORDERS === */
