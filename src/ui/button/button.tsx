@@ -1,6 +1,5 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef } from "react"
-import type { ButtonHTMLAttributes } from "react"
+import type { ComponentProps, FC } from "react"
 
 import css from "./button.module.css"
 import { cn } from "../../utils/cn.js"
@@ -13,9 +12,10 @@ type ButtonSize = "default" | "sm" | "lg" | "icon"
 /**
  * Props for the Button component.
  */
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+type ButtonProps = ComponentProps<"button"> & {
   variant?: ButtonVariant
   size?: ButtonSize
+  // eslint-disable-next-line react/boolean-prop-naming -- Radix's name
   asChild?: boolean
 }
 
@@ -29,36 +29,32 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
  *   <a href="/link">Link styled as Button</a>
  * </Button>
  */
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      className,
-      variant = "default",
-      size = "default",
-      asChild = false,
-      type = "button",
-      ...props
-    },
-    reference
-  ) => {
-    const Comp = asChild ? Slot : "button"
+const Button: FC<ButtonProps> = ({
+  ref,
+  className,
+  variant = "default",
+  size = "default",
+  asChild = false,
+  type = "button",
+  ...props
+}) => {
+  const Comp = asChild ? Slot : "button"
 
-    return (
-      <Comp
-        className={cn(
-          css["base"],
-          css[`variant-${variant}`],
-          css[`size-${size}`],
-          className
-        )}
-        ref={reference}
-        // A child, eg. a link, sets its own type
-        type={asChild ? undefined : type}
-        {...props}
-      />
-    )
-  }
-)
+  return (
+    <Comp
+      className={cn(
+        css["base"],
+        css[`variant-${variant}`],
+        css[`size-${size}`],
+        className
+      )}
+      ref={ref}
+      // A child, eg. a link, sets its own type
+      type={asChild ? undefined : type}
+      {...props}
+    />
+  )
+}
 
 Button.displayName = "GruvboxButton"
 

@@ -1,4 +1,3 @@
-import { forwardRef } from "react"
 import type { FC, ReactNode } from "react"
 
 import css from "./sidebar.module.css"
@@ -127,17 +126,18 @@ type SidebarMenuButtonProps = Omit<ButtonProps, "variant" | "size"> & {
  * </SidebarMenuButton>
  * ```
  */
-const SidebarMenuButton = forwardRef<HTMLButtonElement, SidebarMenuButtonProps>(
-  ({ className, isActive = false, ...props }, reference) => (
-    <Button
-      className={cn(css["menu-button"], className)}
-      variant="ghost"
-      size="sm"
-      aria-current={isActive ? "page" : undefined}
-      ref={reference}
-      {...props}
-    />
-  )
+const SidebarMenuButton: FC<SidebarMenuButtonProps> = ({
+  className,
+  isActive = false,
+  ...props
+}) => (
+  <Button
+    className={cn(css["menu-button"], className)}
+    variant="ghost"
+    size="sm"
+    aria-current={isActive ? "page" : undefined}
+    {...props}
+  />
 )
 
 SidebarMenuButton.displayName = "GruvboxSidebarMenuButton"

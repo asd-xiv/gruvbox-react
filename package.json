@@ -97,7 +97,7 @@
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19"
+    "react": "^19",
+    "react-dom": "^19"
   }
 }

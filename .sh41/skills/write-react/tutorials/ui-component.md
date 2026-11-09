@@ -45,13 +45,13 @@ an error.
 /* eslint-disable react/forbid-dom-props --
    Ids link the label, the hint and the error to the input */
 
-import { forwardRef, useId } from "react"
-import type { InputHTMLAttributes } from "react"
+import { useId } from "react"
+import type { ComponentProps, FC } from "react"
 
 import css from "./input.module.css"
 import { cn } from "../../utils/cn.js"
 
-type InputProps = InputHTMLAttributes<HTMLInputElement> & {
+type InputProps = ComponentProps<"input"> & {
   /** Visible name of the input. Screen readers read it too */
   label: string
   /** Tells what to type, under the input */
@@ -63,7 +63,9 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
 
 ### 3. The component
 
-- Forward a ref only from a component that renders one interactive element
+- Take a ref only in a component that renders one interactive element
+  - Bad: `forwardRef`, the React 18 API
+  - Good: `ref` from the props
 - With no visible text, name the control with `aria-label`
 
 ````tsx
@@ -76,43 +78,49 @@ type InputProps = InputHTMLAttributes<HTMLInputElement> & {
  * <Input label="Email" type="email" error="An email has an @" />
  * ```
  */
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ id, className, label, hint, error, ...props }, ref) => {
-    const generatedId = useId()
-    const inputId = id ?? generatedId
-    const hintId = `${inputId}-hint`
-    const errorId = `${inputId}-error`
-    const describedBy = [hint && hintId, error && errorId]
-      .filter(Boolean)
-      .join(" ")
+const Input: FC<InputProps> = ({
+  ref,
+  id,
+  className,
+  label,
+  hint,
+  error,
+  ...props
+}) => {
+  const generatedId = useId()
+  const inputId = id ?? generatedId
+  const hintId = `${inputId}-hint`
+  const errorId = `${inputId}-error`
+  const describedBy = [hint && hintId, error && errorId]
+    .filter(Boolean)
+    .join(" ")
 
-    return (
-      <div className={cn(css["base"], className)}>
-        <label className={css["label"]} htmlFor={inputId}>
-          {label}
-        </label>
-        <input
-          {...props}
-          className={css["input"]}
-          id={inputId}
-          ref={ref}
-          aria-invalid={error ? true : undefined}
-          aria-describedby={describedBy || undefined}
-        />
-        {hint && (
-          <span className={css["hint"]} id={hintId}>
-            {hint}
-          </span>
-        )}
-        {error && (
-          <span className={css["error"]} id={errorId}>
-            {error}
-          </span>
-        )}
-      </div>
-    )
-  }
-)
+  return (
+    <div className={cn(css["base"], className)}>
+      <label className={css["label"]} htmlFor={inputId}>
+        {label}
+      </label>
+      <input
+        {...props}
+        className={css["input"]}
+        id={inputId}
+        ref={ref}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={describedBy || undefined}
+      />
+      {hint && (
+        <span className={css["hint"]} id={hintId}>
+          {hint}
+        </span>
+      )}
+      {error && (
+        <span className={css["error"]} id={errorId}>
+          {error}
+        </span>
+      )}
+    </div>
+  )
+}
 ````
 
 ### 4. The name and the exports

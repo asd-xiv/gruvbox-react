@@ -43,8 +43,8 @@ This package requires and assumes you already installed:
 
 ```json
   "peerDependencies": {
-    "react": "^18 || ^19",
-    "react-dom": "^18 || ^19",
+    "react": "^19",
+    "react-dom": "^19",
   },
 ```
 
