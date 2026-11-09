@@ -68,6 +68,12 @@
   display: none;
 }
 
+/* A filled or outlined button turns gray, so its muted label stays readable */
+.raised:disabled {
+  background-color: var(--gvb-bg-tertiary);
+  border-color: var(--gvb-bg-tertiary);
+}
+
 /* === STYLE VARIANTS === */
 
 .variant-default {
