@@ -22,7 +22,9 @@
     "url": "git+https://github.com/asd-xiv/gruvbox-react.git"
   },
   "files": [
-    "dist"
+    "dist",
+    ".sh41/skills",
+    "!.sh41/skills/*/.local"
   ],
   "type": "module",
   "exports": {
