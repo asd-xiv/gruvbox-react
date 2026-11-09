@@ -51,6 +51,11 @@ This package requires and assumes you already installed:
 
 ## Usage
 
+```css
+/* src/index.css */
+@import "@asd14/gruvbox-react";
+```
+
 ```tsx
 // src/index.tsx
 import { useColorScheme } from "@asd14/gruvbox-react/hooks"
