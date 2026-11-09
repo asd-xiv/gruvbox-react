@@ -13,7 +13,8 @@
 }
 
 .header {
-  composes: flex items-center gap-2 mb-2 from global;
+  composes: flex items-center gap-2 from global;
+  margin-bottom: var(--gvb-unit);
 }
 
 .icon {
