@@ -1,0 +1,19 @@
+/* The utilities of the kit style the elements inside the color scheme root,
+   not the root itself */
+.app {
+  display: flex;
+  min-height: 100dvh;
+  color: var(--gvb-fg-primary);
+  background-color: var(--gvb-bg-primary);
+}
+
+.home-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--gvb-unit-4);
+}

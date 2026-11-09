@@ -5,8 +5,8 @@ import {
   getIgnorePatterns,
 } from "@asd14/eslint-config/react"
 
-const SRC_FILES = ["src/**/*.{ts,tsx}"]
-const TEST_FILES = ["src/**/*.test.{ts,tsx}"]
+const SRC_FILES = ["src/**/*.{ts,tsx}", "site/src/**/*.{ts,tsx}"]
+const TEST_FILES = ["src/**/*.test.{ts,tsx}", "site/src/**/*.test.{ts,tsx}"]
 const DEV_FILES = [
   "eslint.config.js",
   "jsdom.config.js",

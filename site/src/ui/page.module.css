@@ -1,0 +1,24 @@
+.page {
+  composes: grid gap-4 from global;
+  max-width: 60rem;
+}
+
+.header {
+  composes: grid gap-2 from global;
+}
+
+.summary {
+  margin: 0;
+  font-family: var(--gvb-font-body);
+  color: var(--gvb-fg-secondary);
+}
+
+.example {
+  composes: grid gap-2 from global;
+}
+
+.inline-code {
+  padding: 0 0.5ch;
+  font-family: var(--gvb-font-mono);
+  background-color: var(--gvb-bg-secondary);
+}
