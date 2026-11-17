@@ -16,11 +16,10 @@ https://base-ui.com/react/components/combobox.md
 
 ## Steps
 
-1. Check the dependency rules first. A native element may do the job, eg.
-   `<select>` for a plain choice
+1. Use a native element when it handles every keyboard key the WAI-ARIA pattern
+   requires, eg. `<select>` for a plain choice
 2. Take the component from Base UI, the one behavior library of gruvbox-react
-3. Add Base UI to the `peerDependencies` of gruvbox-react, so the app installs
-   one copy
+3. Add Base UI to the `peerDependencies` of gruvbox-react
 
 ## Example: Combobox
 

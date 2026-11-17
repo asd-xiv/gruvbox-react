@@ -24,7 +24,8 @@ Sources:
      for its keys
 2. Read its anatomy: the parts, the behavior library behind them, the ARIA, the
    keys and the `data-*` state attributes
-3. Pick a native element or a behavior library, by the dependency rules
+3. Pick a native element when it handles every keyboard key the WAI-ARIA pattern
+   requires, or a behavior library otherwise
    - Use a native element in place of a Radix component where one exists, eg.
      `<dialog>` for Dialog, `<details name>` for Accordion
 4. Keep the ARIA, the required keys, the state attributes, and a title on every
