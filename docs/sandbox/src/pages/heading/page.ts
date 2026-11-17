@@ -1,6 +1,6 @@
 import { HeadingLevels } from "./levels.js"
 import levelsSource from "./levels.tsx?raw"
-import headingSource from "../../../../src/ui/heading/heading.tsx?raw"
+import headingSource from "../../../../../src/ui/heading/heading.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 

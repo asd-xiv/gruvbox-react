@@ -1,5 +1,5 @@
 import layoutSource from "./layout.tsx?raw"
-import sidebarSource from "../../../../src/ui/sidebar/sidebar.tsx?raw"
+import sidebarSource from "../../../../../src/ui/sidebar/sidebar.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 

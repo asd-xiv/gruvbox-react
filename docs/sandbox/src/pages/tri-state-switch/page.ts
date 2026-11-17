@@ -1,6 +1,6 @@
 import { TriStateSwitchTextSize } from "./text-size.js"
 import textSizeSource from "./text-size.tsx?raw"
-import triStateSwitchSource from "../../../../src/ui/tri-state-switch/tri-state-switch.tsx?raw"
+import triStateSwitchSource from "../../../../../src/ui/tri-state-switch/tri-state-switch.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 

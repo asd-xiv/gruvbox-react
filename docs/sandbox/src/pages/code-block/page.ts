@@ -1,6 +1,6 @@
 import { CodeBlockLanguages } from "./languages.js"
 import languagesSource from "./languages.tsx?raw"
-import codeBlockSource from "../../../../src/ui/code-block/code-block.tsx?raw"
+import codeBlockSource from "../../../../../src/ui/code-block/code-block.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 

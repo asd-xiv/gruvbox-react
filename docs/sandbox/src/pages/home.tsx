@@ -1,8 +1,8 @@
 import { CodeBlock, Heading } from "@asd14/gruvbox-react/ui"
 import type { CodeLanguage } from "@asd14/gruvbox-react/ui"
 
-import packageSource from "../../../package.json?raw"
-import readmeSource from "../../../README.md?raw"
+import packageSource from "../../../../package.json?raw"
+import readmeSource from "../../../../README.md?raw"
 import css from "../ui/page.module.css"
 import { findFencedCodes } from "../utils/source.js"
 

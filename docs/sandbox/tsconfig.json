@@ -3,13 +3,13 @@
   "extends": "@asd14/ts-config/targets/react.json",
   "compilerOptions": {
     "noEmit": true,
-    "tsBuildInfoFile": "../node_modules/.tmp/tsconfig.site.tsbuildinfo",
-    "types": ["node"],
+    "tsBuildInfoFile": "../../node_modules/.tmp/tsconfig.sandbox.tsbuildinfo",
+    "types": ["node", "@asd14/vblocks/client"],
     "paths": {
       "@self/*": ["./src/*"],
-      "@asd14/gruvbox-react/*": ["../src/*"],
+      "@asd14/gruvbox-react/*": ["../../src/*"],
       // Its export name differs from its source path, `src/icons/nerd.ts`
-      "@asd14/gruvbox-react/icons-nerd": ["../src/icons/nerd.ts"]
+      "@asd14/gruvbox-react/icons-nerd": ["../../src/icons/nerd.ts"]
     }
   },
   "include": ["src"]

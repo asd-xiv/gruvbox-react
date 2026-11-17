@@ -27,7 +27,7 @@ const SOURCE = [
   "const Button: FC<ButtonProps> = () => null",
 ].join("\n")
 
-void describe("site/utils/source :: findTypeSource :: valid", () => {
+void describe("docs/sandbox/utils/source :: findTypeSource :: valid", () => {
   void test("given [two names] should [return both declarations, in the order of the names]", () => {
     strictEqual(
       findTypeSource(SOURCE, ["ButtonSize", "ButtonProps"]),
@@ -45,7 +45,7 @@ void describe("site/utils/source :: findTypeSource :: valid", () => {
   })
 })
 
-void describe("site/utils/source :: findTypeSource :: edge", () => {
+void describe("docs/sandbox/utils/source :: findTypeSource :: edge", () => {
   void test("given [a missing name] should [skip it]", () => {
     strictEqual(
       findTypeSource(SOURCE, ["Missing", "ButtonSize"]),
@@ -61,7 +61,7 @@ void describe("site/utils/source :: findTypeSource :: edge", () => {
   })
 })
 
-void describe("site/utils/source :: findCommentSummary :: valid", () => {
+void describe("docs/sandbox/utils/source :: findCommentSummary :: valid", () => {
   void test("given [a comment above the const] should [return its text up to the first blank line, on one line]", () => {
     strictEqual(
       findCommentSummary(SOURCE, "Button"),
@@ -70,13 +70,13 @@ void describe("site/utils/source :: findCommentSummary :: valid", () => {
   })
 })
 
-void describe("site/utils/source :: findCommentSummary :: edge", () => {
+void describe("docs/sandbox/utils/source :: findCommentSummary :: edge", () => {
   void test("given [a const with no comment] should [return an empty string]", () => {
     strictEqual(findCommentSummary("const Button = () => null", "Button"), "")
   })
 })
 
-void describe("site/utils/source :: findFencedCodes :: valid", () => {
+void describe("docs/sandbox/utils/source :: findFencedCodes :: valid", () => {
   void test("given [a section with two fences] should [return both, in order]", () => {
     const markdown = [
       "# Kit",
@@ -105,7 +105,7 @@ void describe("site/utils/source :: findFencedCodes :: valid", () => {
   })
 })
 
-void describe("site/utils/source :: findFencedCodes :: edge", () => {
+void describe("docs/sandbox/utils/source :: findFencedCodes :: edge", () => {
   void test("given [a missing heading] should [return no fence]", () => {
     deepStrictEqual(findFencedCodes("# Kit\n\n## Usage\n", "## Install"), [])
   })

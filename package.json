@@ -55,9 +55,9 @@
     "typecheck:code": "tsc --noEmit --project ./.tsconfig/code.json",
     "typecheck:config": "tsc --noEmit --project ./.tsconfig/config.json",
     "typecheck:tests": "tsc --noEmit --project ./.tsconfig/tests.json",
-    "typecheck:site": "tsc --noEmit --project ./site/tsconfig.json",
-    "typecheck": "npm run typecheck:code && npm run typecheck:config && npm run typecheck:tests && npm run typecheck:site",
-    "unit-test": "TSX_TSCONFIG_PATH=.tsconfig/tests.json node --import tsx --import ./css-modules.config.js --import ./jsdom.config.js --test 'src/**/*.test.ts' 'src/**/*.test.tsx' 'site/src/**/*.test.ts'",
+    "typecheck:sandbox": "tsc --noEmit --project ./docs/sandbox/tsconfig.json",
+    "typecheck": "npm run typecheck:code && npm run typecheck:config && npm run typecheck:tests && npm run typecheck:sandbox",
+    "unit-test": "TSX_TSCONFIG_PATH=.tsconfig/tests.json node --import tsx --import ./css-modules.config.js --import ./jsdom.config.js --test 'src/**/*.test.ts' 'src/**/*.test.tsx' 'docs/sandbox/src/**/*.test.ts'",
     "---BUILD": "",
     "build:types": "tsc --emitDeclarationOnly --project ./.tsconfig/code.json",
     "build:js": "swc src --out-dir dist --strip-leading-paths --copy-files --ignore 'src/design-system/**'",
@@ -66,9 +66,9 @@
     "prebuild": "rm -rf dist/* node_modules/.tmp/*.tsbuildinfo",
     "build": "npm run build:css && npm run build:fonts && npm run build:js && npm run build:types",
     "watch:js": "npm run build:js -- --watch",
-    "---SITE": "",
-    "serve:site": "vblocks serve --prefix site",
-    "build:site": "npm run build && vblocks build --prefix site"
+    "---DOCS": "",
+    "start": "vblocks serve --prefix docs/sandbox",
+    "build:docs": "npm run build && vblocks build --prefix docs/sandbox"
   },
   "dependencies": {
     "@swc/helpers": "^0.5.23",

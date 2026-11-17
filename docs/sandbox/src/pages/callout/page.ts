@@ -2,7 +2,7 @@ import { CalloutCustomTitle } from "./custom-title.js"
 import customTitleSource from "./custom-title.tsx?raw"
 import { CalloutVariants } from "./variants.js"
 import variantsSource from "./variants.tsx?raw"
-import calloutSource from "../../../../src/ui/callout/callout.tsx?raw"
+import calloutSource from "../../../../../src/ui/callout/callout.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 

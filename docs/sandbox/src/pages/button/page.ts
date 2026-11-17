@@ -4,7 +4,7 @@ import { ButtonSizes } from "./sizes.js"
 import sizesSource from "./sizes.tsx?raw"
 import { ButtonVariants } from "./variants.js"
 import variantsSource from "./variants.tsx?raw"
-import buttonSource from "../../../../src/ui/button/button.tsx?raw"
+import buttonSource from "../../../../../src/ui/button/button.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 

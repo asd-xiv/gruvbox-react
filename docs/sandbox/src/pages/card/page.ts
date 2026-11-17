@@ -1,6 +1,6 @@
 import { CardWithTitle } from "./with-title.js"
 import withTitleSource from "./with-title.tsx?raw"
-import cardSource from "../../../../src/ui/card/card.tsx?raw"
+import cardSource from "../../../../../src/ui/card/card.tsx?raw"
 import type { ComponentPage } from "../../ui/component-page-view.js"
 import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
