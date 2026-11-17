@@ -79,7 +79,7 @@
     "@asd14/prettier-config": "^1.5.0",
     "@asd14/semantic-release-config": "^1.1.0",
     "@asd14/ts-config": "^2.0.0",
-    "@asd14/vblocks": "^6.3.0",
+    "@asd14/vblocks": "^7.0.0",
     "@base-ui/react": "^1.9.0",
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
