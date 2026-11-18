@@ -30,7 +30,7 @@ an error.
 - Name the classes `base`, `variant-<name>` and `size-<name>`, and each element
   by its role, eg. `header`
 - `cn` joins the caller's `className` last, after the module's class
-- Never use the `style` prop, CSS-in-JS or Tailwind
+- Never use CSS-in-JS or Tailwind
 
 ```tsx
 // src/ui/input/input.tsx
@@ -135,7 +135,6 @@ These rules add to the design principles of `SKILL.md`:
   - Center a label in its box with `text-box: trim-both cap alphabetic`. A
     browser without `text-box` skips the declaration, so do not write a fallback
 - Shadow
-  - Never write a `box-shadow`
   - A component with the shadow has a `--gvb-border-width-thin` border and
     `--gvb-radius-none` corners. A child scrolls, never the component: an
     `overflow` on the component would clip the shadow
@@ -200,12 +199,8 @@ These rules add to the design principles of `SKILL.md`:
 
 ## Verify
 
-- [ ] The modules do not contain a raw color, `opacity` or `box-shadow`:
-      `grep -nE '#[0-9a-fA-F]{3,8}\b|rgba?\(|opacity|box-shadow' <files>` prints
-      nothing
 - [ ] Render the component on a page, and look at it in both color schemes
 - [ ] The component has none of these common faults:
-  - a lookalike of a gruvbox-react component
   - a portal to `<body>`, outside the color scheme root
   - a bare `p`, `ul` or heading inside a component, with the margin of the
     global styles

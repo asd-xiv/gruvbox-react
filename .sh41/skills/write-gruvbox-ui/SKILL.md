@@ -50,8 +50,6 @@ const App = () => (
 
 - Render one `ColorSchemeRoot` around the app. The tokens and the styles live
   inside it
-- Use a gruvbox-react component before you write markup. A hand-made button has
-  the wrong padding, hover and focus
 - Style the app's own components with a CSS module next to each one
   - Compose the global utilities for layout: `composes: flex gap-1 from global`.
     They share Tailwind's names, not its values: `p-1` is 8px
@@ -67,8 +65,8 @@ const App = () => (
 ## Design principles
 
 - **Color**: surfaces use `--gvb-bg-*`, text uses `--gvb-fg-*`. Only status uses
-  `--gvb-color-*`. One `--gvb-bright-*` accent per component. No hex, `opacity`,
-  gradient or blur
+  `--gvb-color-*`. One `--gvb-bright-*` accent per component. No hex, gradient
+  or blur, and an `opacity` of 0 or 1 only
 - **Space**: `--gvb-unit` and its multiples, or `1ch` cells inline. A fixed
   `gap`, never `space-between`. One padding on every side of a box
 - **Shape**: corners of `--gvb-radius-none` or `--gvb-radius-sm`. A border marks
@@ -78,8 +76,8 @@ const App = () => (
 - **Shadow**: one Turbo Pascal shadow, cast with `composes: shadow from global`,
   only by a dialog, a menu, a popover, a toast, a filled button, a callout or a
   card
-- **Motion**: color, background and transform only, never under
-  `prefers-reduced-motion: reduce`
+- **Motion**: color, background and transform only, inside
+  `@media (prefers-reduced-motion: no-preference)`
 
 ## Components
 
@@ -89,17 +87,17 @@ or `src/<ui|hooks>/<folder>/` in gruvbox-react.
 
 From `@asd14/gruvbox-react/ui`:
 
-| Component                                                                        | Use it for                                   | Folder              |
-| :------------------------------------------------------------------------------- | :------------------------------------------- | :------------------ |
-| `Button`                                                                         | an action, or a link in the look of a button | `button/`           |
-| `Callout`                                                                        | a note, a tip or a warning to the reader     | `callout/`          |
-| `Card`                                                                           | a group with a title                         | `card/`             |
-| `Heading`                                                                        | a page or section title                      | `heading/`          |
-| `CodeBlock`                                                                      | highlighted code                             | `code-block/`       |
-| `Sidebar`, `SidebarGroup`, `SidebarMenu`, `SidebarMenuItem`, `SidebarMenuButton` | side navigation                              | `sidebar/`          |
-| `TriStateSwitch`                                                                 | a choice of three, eg. a text size           | `tri-state-switch/` |
-| `ColorSchemeRoot`                                                                | the root of the app, once                    | `color-scheme/`     |
-| `ColorSchemeSwitch`                                                              | the dark, system and light switch            | `color-scheme/`     |
+| Component                          | Use it for                                   | Folder              |
+| :--------------------------------- | :------------------------------------------- | :------------------ |
+| `Button`                           | an action, or a link in the look of a button | `button/`           |
+| `Callout`                          | a note, a tip or a warning to the reader     | `callout/`          |
+| `Card`                             | a group with a title                         | `card/`             |
+| `Heading`                          | a page or section title                      | `heading/`          |
+| `CodeBlock`                        | highlighted code                             | `code-block/`       |
+| `Sidebar` and its `Sidebar*` parts | side navigation                              | `sidebar/`          |
+| `TriStateSwitch`                   | a choice of three, eg. a text size           | `tri-state-switch/` |
+| `ColorSchemeRoot`                  | the root of the app, once                    | `color-scheme/`     |
+| `ColorSchemeSwitch`                | the dark, system and light switch            | `color-scheme/`     |
 
 From `@asd14/gruvbox-react/hooks`:
 

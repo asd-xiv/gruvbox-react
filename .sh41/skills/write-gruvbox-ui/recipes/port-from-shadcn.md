@@ -24,10 +24,8 @@ Sources:
      for its keys
 2. Read its anatomy: the parts, the behavior library behind them, the ARIA, the
    keys and the `data-*` state attributes
-3. Pick a native element when it handles every keyboard key the WAI-ARIA pattern
-   requires, or a behavior library otherwise
-   - Use a native element in place of a Radix component where one exists, eg.
-     `<dialog>` for Dialog, `<details name>` for Accordion
+3. Use a native element in place of a Radix component where one exists, eg.
+   `<dialog>` for Dialog, `<details name>` for Accordion. Use Base UI otherwise
 4. Keep the ARIA, the required keys, the state attributes, and a title on every
    dialog
 5. Remove the animations, the extra variants and sizes, the `dark:` classes, the
@@ -149,9 +147,6 @@ export type { DialogProps }
 /* src/ui/dialog/dialog.module.css */
 .base {
   composes: shadow from global;
-  /* The reset zeroes every margin. The browser centers a modal with
-     `margin: auto` */
-  margin: auto;
   /* The browser gives a modal `overflow: auto`, which clips the shadow */
   overflow: visible;
   width: min(100% - var(--gvb-unit-4), 32rem);
