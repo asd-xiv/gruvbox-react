@@ -48,6 +48,7 @@ const App = () => {
                 <SidebarMenuItem key={item.slug}>
                   <SidebarMenuButton
                     isActive={item.slug === hash}
+                    // eslint-disable-next-line jsx-a11y/anchor-has-content -- Base UI fills the anchor with the children
                     render={<a href={`#${item.slug}`} />}>
                     {item.title}
                   </SidebarMenuButton>

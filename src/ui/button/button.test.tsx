@@ -34,6 +34,7 @@ void describe("ui/button :: Button :: valid", () => {
   })
 
   void test("given [a link in render] should [draw the link in the look of a button]", () => {
+    // eslint-disable-next-line jsx-a11y/anchor-has-content -- Base UI fills the anchor with the children
     render(<Button render={<a href="/docs" />}>Docs</Button>)
 
     const link = screen.getByRole("link", { name: "Docs" })

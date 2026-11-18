@@ -8,6 +8,7 @@
     "../eslint.config.js",
     "../jsdom.config.js",
     "../css-modules.config.js",
-    "../postcss.config.js"
+    "../postcss.config.js",
+    "../stylelint.config.js"
   ]
 }

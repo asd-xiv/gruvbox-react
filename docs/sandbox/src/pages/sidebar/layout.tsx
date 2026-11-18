@@ -21,11 +21,13 @@ const AppLayout = ({ children }: { children: ReactNode }) => (
           <SidebarGroupLabel>Model</SidebarGroupLabel>
           <SidebarMenu>
             <SidebarMenuItem>
+              {/* eslint-disable-next-line jsx-a11y/anchor-has-content -- Base UI fills the anchor with the children */}
               <SidebarMenuButton isActive={true} render={<a href="#classes" />}>
                 Classes
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
+              {/* eslint-disable-next-line jsx-a11y/anchor-has-content -- Base UI fills the anchor with the children */}
               <SidebarMenuButton render={<a href="#properties" />}>
                 Properties
               </SidebarMenuButton>

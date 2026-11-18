@@ -15,6 +15,7 @@ const DEV_FILES = [
   "jsdom.config.js",
   "css-modules.config.js",
   "postcss.config.js",
+  "stylelint.config.js",
 ]
 
 /** @type {import("eslint").Linter.Config[]} */
