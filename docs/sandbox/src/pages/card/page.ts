@@ -1,8 +1,8 @@
-import { CardWithTitle } from "./with-title.js"
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { findCommentSummary, findTypeSource } from "@self/utils/source.ts"
+import { CardWithTitle } from "./with-title.tsx"
 import withTitleSource from "./with-title.tsx?raw"
 import cardSource from "../../../../../src/ui/card/card.tsx?raw"
-import type { ComponentPage } from "../../ui/component-page-view.js"
-import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
 const cardPage: ComponentPage = {
   slug: "card",

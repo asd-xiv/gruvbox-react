@@ -5,7 +5,7 @@ import {
   findCommentSummary,
   findFencedCodes,
   findTypeSource,
-} from "./source.js"
+} from "./source.ts"
 
 const SOURCE = [
   'type ButtonSize = "sm" | "lg"',

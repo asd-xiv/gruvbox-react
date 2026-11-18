@@ -1,7 +1,6 @@
 import { createRoot } from "react-dom/client"
 
-import { App } from "./app.js"
-import "./index.css"
+import { App } from "./index.app.tsx"
 
 const root = document.querySelector("#root")
 

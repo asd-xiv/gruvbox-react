@@ -3,8 +3,6 @@
 .app {
   display: flex;
   min-height: 100dvh;
-  color: var(--gvb-fg-primary);
-  background-color: var(--gvb-bg-primary);
 }
 
 .home-link {

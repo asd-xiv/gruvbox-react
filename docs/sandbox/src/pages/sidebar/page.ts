@@ -1,7 +1,7 @@
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { findCommentSummary, findTypeSource } from "@self/utils/source.ts"
 import layoutSource from "./layout.tsx?raw"
 import sidebarSource from "../../../../../src/ui/sidebar/sidebar.tsx?raw"
-import type { ComponentPage } from "../../ui/component-page-view.js"
-import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
 const sidebarPage: ComponentPage = {
   slug: "sidebar",

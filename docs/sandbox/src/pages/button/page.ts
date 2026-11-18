@@ -1,12 +1,12 @@
-import { ButtonAsLink } from "./as-link.js"
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { findCommentSummary, findTypeSource } from "@self/utils/source.ts"
+import { ButtonAsLink } from "./as-link.tsx"
 import asLinkSource from "./as-link.tsx?raw"
-import { ButtonSizes } from "./sizes.js"
+import { ButtonSizes } from "./sizes.tsx"
 import sizesSource from "./sizes.tsx?raw"
-import { ButtonVariants } from "./variants.js"
+import { ButtonVariants } from "./variants.tsx"
 import variantsSource from "./variants.tsx?raw"
 import buttonSource from "../../../../../src/ui/button/button.tsx?raw"
-import type { ComponentPage } from "../../ui/component-page-view.js"
-import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
 const buttonPage: ComponentPage = {
   slug: "button",

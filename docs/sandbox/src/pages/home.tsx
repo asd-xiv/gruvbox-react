@@ -1,10 +1,10 @@
 import { CodeBlock, Heading } from "@asd14/gruvbox-react/ui"
 import type { CodeLanguage } from "@asd14/gruvbox-react/ui"
 
+import css from "@self/ui/page.module.css"
+import { findFencedCodes } from "@self/utils/source.ts"
 import packageSource from "../../../../package.json?raw"
 import readmeSource from "../../../../README.md?raw"
-import css from "../ui/page.module.css"
-import { findFencedCodes } from "../utils/source.js"
 
 const CODE_LANGUAGES: readonly string[] = [
   "tsx",

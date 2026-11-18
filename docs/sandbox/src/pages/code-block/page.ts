@@ -1,8 +1,8 @@
-import { CodeBlockLanguages } from "./languages.js"
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { findCommentSummary, findTypeSource } from "@self/utils/source.ts"
+import { CodeBlockLanguages } from "./languages.tsx"
 import languagesSource from "./languages.tsx?raw"
 import codeBlockSource from "../../../../../src/ui/code-block/code-block.tsx?raw"
-import type { ComponentPage } from "../../ui/component-page-view.js"
-import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
 const codeBlockPage: ComponentPage = {
   slug: "code-block",

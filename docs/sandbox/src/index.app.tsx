@@ -11,13 +11,35 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@asd14/gruvbox-react/ui"
+import { ComponentPageView } from "@self/ui/component-page-view.tsx"
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { useHash } from "@self/utils/use-hash.ts"
 import { useEffect } from "react"
 
-import css from "./app.module.css"
-import { HomePage } from "./pages/home.js"
-import { PAGES } from "./pages.js"
-import { ComponentPageView } from "./ui/component-page-view.js"
-import { useHash } from "./utils/use-hash.js"
+import css from "./index.app.module.css"
+import { buttonPage } from "./pages/button/page.ts"
+import { calloutPage } from "./pages/callout/page.ts"
+import { cardPage } from "./pages/card/page.ts"
+import { codeBlockPage } from "./pages/code-block/page.ts"
+import { colorSchemeSwitchPage } from "./pages/color-scheme-switch/page.ts"
+import { headingPage } from "./pages/heading/page.ts"
+import { HomePage } from "./pages/home.tsx"
+import { sidebarPage } from "./pages/sidebar/page.ts"
+import { triStateSwitchPage } from "./pages/tri-state-switch/page.ts"
+
+/**
+ * The component pages, in the order of the sidebar
+ */
+const PAGES: readonly ComponentPage[] = [
+  buttonPage,
+  calloutPage,
+  cardPage,
+  codeBlockPage,
+  colorSchemeSwitchPage,
+  headingPage,
+  sidebarPage,
+  triStateSwitchPage,
+]
 
 /**
  * The docs site: a sidebar with one link per component, and the page of the

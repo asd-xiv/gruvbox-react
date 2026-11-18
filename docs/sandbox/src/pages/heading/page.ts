@@ -1,8 +1,8 @@
-import { HeadingLevels } from "./levels.js"
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { findCommentSummary, findTypeSource } from "@self/utils/source.ts"
+import { HeadingLevels } from "./levels.tsx"
 import levelsSource from "./levels.tsx?raw"
 import headingSource from "../../../../../src/ui/heading/heading.tsx?raw"
-import type { ComponentPage } from "../../ui/component-page-view.js"
-import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
 const headingPage: ComponentPage = {
   slug: "heading",

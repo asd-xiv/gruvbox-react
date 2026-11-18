@@ -1,10 +1,10 @@
-import { CalloutCustomTitle } from "./custom-title.js"
+import type { ComponentPage } from "@self/ui/component-page-view.tsx"
+import { findCommentSummary, findTypeSource } from "@self/utils/source.ts"
+import { CalloutCustomTitle } from "./custom-title.tsx"
 import customTitleSource from "./custom-title.tsx?raw"
-import { CalloutVariants } from "./variants.js"
+import { CalloutVariants } from "./variants.tsx"
 import variantsSource from "./variants.tsx?raw"
 import calloutSource from "../../../../../src/ui/callout/callout.tsx?raw"
-import type { ComponentPage } from "../../ui/component-page-view.js"
-import { findCommentSummary, findTypeSource } from "../../utils/source.js"
 
 const calloutPage: ComponentPage = {
   slug: "callout",
