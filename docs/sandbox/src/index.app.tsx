@@ -1,4 +1,5 @@
 import {
+  Button,
   ColorSchemeRoot,
   ColorSchemeSwitch,
   Sidebar,
@@ -58,9 +59,10 @@ const App = () => {
     <ColorSchemeRoot className={css["app"]}>
       <Sidebar aria-label="Components">
         <SidebarHeader>
-          <a className={css["home-link"]} href="#home">
+          {/* eslint-disable-next-line jsx-a11y/anchor-has-content -- Base UI fills the anchor with the children */}
+          <Button variant="ghost" render={<a href="#home" />}>
             gruvbox-react
-          </a>
+          </Button>
         </SidebarHeader>
         <SidebarContent>
           <SidebarGroup>
