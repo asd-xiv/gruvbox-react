@@ -426,12 +426,6 @@
   .rounded-sm {
     border-radius: var(--gvb-radius-sm);
   }
-  .rounded-md {
-    border-radius: var(--gvb-radius-md);
-  }
-  .rounded-lg {
-    border-radius: var(--gvb-radius-lg);
-  }
 
   /* Border style */
   .border-solid {
@@ -519,18 +513,6 @@
   }
   .select-all {
     user-select: all;
-  }
-
-  /* === TRANSITIONS === */
-
-  .transition-fast {
-    transition: all var(--gvb-transition-fast);
-  }
-  .transition-normal {
-    transition: all var(--gvb-transition-normal);
-  }
-  .transition-slow {
-    transition: all var(--gvb-transition-slow);
   }
 
   /* === RESPONSIVE === */

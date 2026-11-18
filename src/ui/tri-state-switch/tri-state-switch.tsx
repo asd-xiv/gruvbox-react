@@ -63,7 +63,7 @@ const TriStateSwitch: TriStateSwitchUI = ({
 
   return (
     <div
-      className={cn(css["switch"], className)}
+      className={cn(css["base"], className)}
       role="radiogroup"
       aria-label={label}>
       <span className={css["thumb"]} aria-hidden="true" />

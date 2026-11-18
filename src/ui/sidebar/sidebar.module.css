@@ -4,7 +4,7 @@
  * Static terminal-style side panel with Gruvbox colors
  */
 
-.sidebar {
+.base {
   composes: flex flex-col from global;
   position: sticky;
   top: 0;
@@ -50,7 +50,7 @@
 
 .menu {
   composes: flex flex-col from global;
-  gap: 2px;
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;

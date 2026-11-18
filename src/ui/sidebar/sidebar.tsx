@@ -47,7 +47,7 @@ const Sidebar: FC<SidebarProps> = ({
   className,
   "aria-label": ariaLabel,
 }) => (
-  <aside className={cn(css["sidebar"], className)} aria-label={ariaLabel}>
+  <aside className={cn(css["base"], className)} aria-label={ariaLabel}>
     {children}
   </aside>
 )

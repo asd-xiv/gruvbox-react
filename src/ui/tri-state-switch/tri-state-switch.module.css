@@ -4,33 +4,38 @@
  * A track with three positions and a thumb that slides to the checked one
  */
 
-.switch {
-  composes: rounded-md from global;
+.base {
+  composes: rounded-sm from global;
   position: relative;
   display: inline-grid;
   grid-template-columns: repeat(3, var(--gvb-unit-4));
   height: var(--gvb-unit-4);
-  padding: 2px;
   background-color: var(--gvb-bg-tertiary);
 }
 
 .thumb {
   composes: rounded-sm from global;
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 0;
+  left: 0;
   width: var(--gvb-unit-4);
-  height: calc(100% - 4px);
+  height: 100%;
   background-color: var(--gvb-bg-primary);
-  transition: transform var(--gvb-transition-fast);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .thumb {
+    transition: var(--gvb-transition-fast);
+    transition-property: transform;
+  }
 }
 
 /* The checked radio moves the thumb. The labels are the 2nd and 3rd of type */
-.switch:has(.option:nth-of-type(2) .input:checked) .thumb {
+.base:has(.option:nth-of-type(2) .input:checked) .thumb {
   transform: translateX(100%);
 }
 
-.switch:has(.option:nth-of-type(3) .input:checked) .thumb {
+.base:has(.option:nth-of-type(3) .input:checked) .thumb {
   transform: translateX(200%);
 }
 

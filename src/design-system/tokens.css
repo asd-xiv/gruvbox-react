@@ -95,8 +95,6 @@
   /* Border radius - minimal, terminal-inspired */
   --gvb-radius-none: 0;
   --gvb-radius-sm: 2px;
-  --gvb-radius-md: 4px;
-  --gvb-radius-lg: 6px;
 
   /* === TRANSITIONS === */
 
